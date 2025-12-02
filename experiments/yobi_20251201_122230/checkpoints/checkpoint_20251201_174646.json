@@ -1,0 +1,1562 @@
+{
+  "state": {
+    "experiment_name": "yobi",
+    "config": {
+      "num_scenarios": 20,
+      "max_turns": 20,
+      "turn_timeout": 30.0,
+      "models": [
+        "llama3.3:70b"
+      ],
+      "strategies": [
+        "length",
+        "fair",
+        "utility"
+      ],
+      "agents": [
+        "damf",
+        "search",
+        "simple",
+        "all"
+      ]
+    },
+    "start_time": "2025-12-01 12:22:30.766276",
+    "scenarios_total": 20,
+    "scenarios_completed": 132,
+    "scenarios_failed": 288,
+    "last_checkpoint": "2025-12-01 17:30:32.454961"
+  },
+  "completed_negotiations": {
+    "test_00007": {
+      "start_time": "2025-12-01 17:14:03.154654",
+      "end_time": "2025-12-01 17:14:54.272408",
+      "turns_taken": 8,
+      "buyer_hcv": false,
+      "seller_hcv": false,
+      "buyer_target_price": 253.0,
+      "seller_target_price": 275.0,
+      "final_price": 267.0,
+      "buyer_utility": 0.3333333333333333,
+      "seller_utility": 0.8222222222222222,
+      "fairness": 0.7272727272727273,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the Samsung Gear S3 Classic. What's the story behind it?",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "seller",
+          "content": "The Samsung Gear S3 Classic is a fantastic smartwatch, and this one is flawless. I can offer it to you for $275, which is a great deal considering its condition and original list price.",
+          "price": 275.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'll give you $253.0 for the Samsung Gear S3 Classic. I pay right now if we agree on this price.",
+          "price": 253.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "That's a good offer, but I was thinking more along the lines of $270. It's still a great deal considering the watch is flawless and the original list price is $275.",
+          "price": 270.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I can do $258.0, that's my best price.",
+          "price": 258.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your willingness to negotiate, but I'm afraid $258 is still a bit lower than I'm comfortable with. I can offer you a slight discount from my previous price, how about we meet at $267?",
+          "price": 267.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'll take it.",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "Great, I'm glad we could come to an agreement! You're getting a fantastic deal on a flawless Samsung Gear S3 Classic for $267. I'll finalize the sale and send you the details.",
+          "price": 267.0,
+          "intent": "accept"
+        }
+      ]
+    },
+    "test_00655": {
+      "start_time": "2025-12-01 17:32:15.466162",
+      "end_time": "2025-12-01 17:33:30.125836",
+      "turns_taken": 10,
+      "buyer_hcv": false,
+      "seller_hcv": false,
+      "buyer_target_price": 90.0,
+      "seller_target_price": 100.0,
+      "final_price": 93.5,
+      "buyer_utility": 0.3965517241379307,
+      "seller_utility": 0.7916666666666667,
+      "fairness": 0.7,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the Panasonic 32\" TV. What's the story with it?",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "seller",
+          "content": "The TV is still in great condition, it's a flat screen 32\" Panasonic with the original plastic screen cover still on. I'm open to negotiations, but I was thinking of getting close to the list price of $100, considering it's barely been used and needs just a universal remote.",
+          "price": 100.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm interested in the TV, but considering its age and the need for a universal remote, I think $90.0 is a more reasonable price.",
+          "price": 90.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I understand your point about the age and the need for a universal remote, but considering the TV's condition and the fact that it still has its original plastic screen cover on, I think we can meet in the middle at $95.0.",
+          "price": 95.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I really love the TV and I'm willing to meet you closer, how about $90.8? \ud83d\ude0a",
+          "price": 90.8,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your willingness to meet me closer, and I'm glad you love the TV! However, I can only go as low as $94.0, considering the TV's excellent condition and the fact that it still has its original plastic screen cover on.",
+          "price": 94.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm still interested in the TV, but I can only go up to $91.1. I'm deciding between this and another one, so if we can't agree on this price, I might have to consider the other option.",
+          "price": 91.1,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I understand you have another option to consider, but I'd like to emphasize that this Panasonic 32\" TV is a great deal given its condition and original packaging. While I appreciate your offer of $91.1, I can see you're willing to negotiate, so I'm willing to slightly adjust my previous offer. How about we meet at $93.5, which is as low as I can comfortably go without compromising the value of the TV?",
+          "price": 93.5,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'll take it.",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "Great, I'm glad we could come to an agreement! Since you've agreed to my last offer of $93.5, I'll make sure to get the TV ready for you. Please let me know when you'd like to pick it up or if you need any assistance with the universal remote.",
+          "price": 93.5,
+          "intent": "accept"
+        }
+      ]
+    },
+    "test_00577": {
+      "start_time": "2025-12-01 17:35:13.748530",
+      "end_time": "2025-12-01 17:37:01.246193",
+      "turns_taken": 14,
+      "buyer_hcv": false,
+      "seller_hcv": false,
+      "buyer_target_price": 2160.0,
+      "seller_target_price": 2400.0,
+      "final_price": 2220.0,
+      "buyer_utility": 0.25,
+      "seller_utility": 0.8378378378378378,
+      "fairness": 0.5,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the Carports, Large Spacious Units, Recreation Area, Pool, Heating. Can we discuss the details?",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "seller",
+          "content": "I'd be happy to discuss the details with you. The Carports, Large Spacious Units, Recreation Area, Pool, Heating is a fantastic option, offering a unique combination of comfort and amenities. What specific aspects would you like to know more about, and what's your budget looking like for this?",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "what condition is it in",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "The Carports, Large Spacious Units, Recreation Area, Pool, Heating is in excellent condition, well-maintained with modern amenities like stainless steel appliances, heating, and high-speed internet access. The property also features a lovely garden setting with a sparkling swimming pool, making it an ideal choice for those looking for comfort and recreation.",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "How about $2160.0? I pay right now.",
+          "price": 2160.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your enthusiasm to pay right now, but I was thinking more along the lines of $2300.0, considering the excellent condition and the unique amenities this property offers. It's a great deal at that price.",
+          "price": 2300.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I understand you think it's a great deal at $2300.0, but honestly, I believe $2170.0 is a more reasonable price considering the age of the property and some minor flaws I've noticed.",
+          "price": 2170.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I see your point about the age of the property and minor flaws, but I still believe $2300.0 is a fair price given its excellent overall condition and the valuable amenities it offers, such as the spacious units, recreation area, pool, and heating. Meeting you halfway from my previous offer, I could consider $2275.0, which is the lowest I can go while ensuring the sale reflects the property's true value.",
+          "price": 2275.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I can do $2180.0.",
+          "price": 2180.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your willingness to increase your offer to $2180.0. However, considering the unique amenities and excellent condition of the Carports, Large Spacious Units, Recreation Area, Pool, Heating, I'm looking for a price that better reflects its value. I can offer a slight adjustment from my previous proposal, meeting you closer at $2250.0, which is still below my target but acknowledges your interest in the property.",
+          "price": 2250.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I appreciate your adjustment to $2250.0, but I saw this for $2190.0 elsewhere, which makes me hesitant to go that high. I can do $2190.0.",
+          "price": 2190.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I understand your concern about seeing it elsewhere for $2190.0, but I must highlight that our Carports, Large Spacious Units, Recreation Area, Pool, Heating offers a unique combination of amenities and excellent condition that justifies a premium. However, I'm willing to work with you and can offer a small concession from my previous price. I can meet you at $2220.0, which is the best I can do while ensuring the sale reflects the property's true value.",
+          "price": 2220.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "OK",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "I'm glad we've reached an understanding. To confirm, you're willing to accept $2220.0 for the Carports, Large Spacious Units, Recreation Area, Pool, Heating, correct?",
+          "price": 2220.0,
+          "intent": "accept"
+        }
+      ]
+    },
+    "test_00760": {
+      "start_time": "2025-12-01 17:37:58.555344",
+      "end_time": "2025-12-01 17:40:05.215636",
+      "turns_taken": 15,
+      "buyer_hcv": false,
+      "seller_hcv": false,
+      "buyer_target_price": 647.0,
+      "seller_target_price": 1295.0,
+      "final_price": 922.0,
+      "buyer_utility": 0.2819843342036554,
+      "seller_utility": 0.0,
+      "fairness": 0.8487654320987654,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the $1295 studio apartment in Richmond. Can we discuss the details?",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "seller",
+          "content": "The studio apartment in Richmond is a great option, walking distance to Bart and featuring a kitchen, full bathroom, and 1 car parking space. I'd be happy to discuss the details with you, what specifically would you like to know or what are your thoughts on the list price of $1295?",
+          "price": null,
+          "intent": "vague-price"
+        },
+        {
+          "role": "buyer",
+          "content": "How about $647.0? I saw this for cheaper elsewhere, so I'm hoping we can discuss a better price.",
+          "price": 647.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "seller",
+          "content": "I understand you've seen similar options for cheaper elsewhere, but I'd like to highlight that our studio apartment is in a prime location, walking distance to Bart, and comes with a 1 car parking space. Considering the amenities and location, $647 is quite low. I can offer some flexibility, but I'd need to discuss something closer to our list price of $1295.",
+          "price": null,
+          "intent": "vague-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm deciding between this and another studio apartment, so I'd like to make a counteroffer of $707.0. If we can't agree on this price, I might have to consider the other option.",
+          "price": 707.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your counteroffer of $707.0, and I'm glad you're considering our studio apartment. However, I still need to emphasize that our location and amenities, such as the walk-in distance to Bart and the 1 car parking space, offer significant value. While I'm willing to negotiate, $707 is still a bit lower than I'd like. Could we meet in the middle at around $1000, which would be a more reasonable adjustment from our list price of $1295?",
+          "price": null,
+          "intent": "disagree"
+        },
+        {
+          "role": "buyer",
+          "content": "I can do $728.0, that's my best offer.",
+          "price": 728.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your revised offer of $728.0, but I'm still aiming to get closer to our list price of $1295, considering the prime location and amenities like the 1 car parking space. Meeting in the middle at around $1000 would be more reasonable, given the value this studio apartment offers.",
+          "price": 1000.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I completely understand where you're coming from, but I'm really stretching my budget here \ud83e\udd17. How about we meet at $813.0? I think that's a fair compromise, and I'd love to make this work for both of us \ud83d\ude0a.",
+          "price": 813.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your willingness to compromise at $813.0, and I'm glad you see the value in this studio apartment. However, I still need to get closer to our list price of $1295, considering the unique benefits like the walk-in distance to Bart and the 1 car parking space. I can offer a slight adjustment from my previous proposal, but we're still a bit apart. How about we discuss something in the range of $950, which would be a more significant step towards meeting in the middle?",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "buyer",
+          "content": "I understand your point, but I still think $950 is too high for this studio apartment. Considering its age and the fact that it's a relatively small space, I'm willing to do $815.0, which is my final offer.",
+          "price": 815.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your final offer of $815.0, but I'm afraid it's still a bit short of what I'm aiming for. As we've discussed, this studio apartment offers a unique combination of location, amenities, and value that justifies a price closer to our initial list price. Considering your budget constraints, I'm willing to make a slight concession, but I must ensure we meet at a price that reflects the property's worth. Given your final offer, I'd like to propose $928.0 as a potential meeting point, which is a significant compromise on my end while still acknowledging the apartment's value.",
+          "price": 928.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "OK.",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "I'm glad we've reached a point where we can finalize the details. Considering your final offer and my proposal, I think we're very close to an agreement. Since you've agreed to $928 is not feasible for you but you said OK, I would like to slightly adjust my previous proposal to $922.0, which is the lowest I can go while still ensuring the apartment's value is reflected. Would you be willing to accept this price?",
+          "price": 922.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm excited to finalize the deal at $922.0. Buying now!",
+          "price": 922.0,
+          "intent": "accept"
+        }
+      ]
+    },
+    "test_00727": {
+      "start_time": "2025-12-01 17:14:54.285393",
+      "end_time": "2025-12-01 17:16:35.389654",
+      "turns_taken": 14,
+      "buyer_hcv": false,
+      "seller_hcv": false,
+      "buyer_target_price": 210.0,
+      "seller_target_price": 300.0,
+      "final_price": 248.5,
+      "buyer_utility": 0.5722222222222222,
+      "seller_utility": 0.652027027027027,
+      "fairness": 0.8555555555555556,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the Used high end printer Dell 2130cn. What's the story with it?",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "seller",
+          "content": "The Dell 2130cn is a high-end laser jet printer that was given to me by an office. I'm not aware of any defects, but it's possible it may need new toner cartridges to get it up and running. I'm looking for a fair price, considering its original list price was $300.",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "does it work now?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "To be honest, I haven't tested it yet, but like I mentioned earlier, another printer from the same office worked fine after replacing the ink cartridges, so it's likely this one just needs new toner cartridges as well.",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "how you ship it",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "I can ship it via UPS or FedEx, whichever is more convenient for you, and I'll make sure it's properly packaged to prevent any damage during transit. Would you like to discuss the price?",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "How about $210.0? I'm deciding between this and another one, so let me know if you're willing to sell for that price.",
+          "price": 210.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your interest in the printer, but I was thinking more along the lines of $280, considering its original list price and the potential it has after just a simple replacement of toner cartridges. It's a great deal for a high-end model like this.",
+          "price": 280.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I totally get where you're coming from, but I'm really on a tight budget \ud83e\udd17. How about we meet in the middle at $222.0? It's the best I can do, and I promise to take good care of the printer \ud83d\ude0a.",
+          "price": 222.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your willingness to compromise, but $222 is still a bit lower than I'm comfortable with. Considering the printer's potential and the fact that it just needs new toner cartridges, I can do $260, which is the lowest I can go while still ensuring it's a fair deal for both of us.",
+          "price": 260.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I understand you're willing to go down to $260, but considering the printer's age and the fact it may need new toner cartridges, I think $237.0 is a more reasonable price.",
+          "price": 237.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I see your point about the printer's age and potential need for new toner cartridges, but I still believe it has a lot of value given its high-end quality. I can consider meeting you halfway between my previous offer of $260 and your proposal of $237.0, so how about we settle at $248.5?",
+          "price": 248.5,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "OK",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "Great, I'm glad we were able to come to an agreement. The Used high end printer Dell 2130cn is sold to you for $248.5. I'll make sure to ship it via UPS or FedEx, properly packaged to prevent any damage during transit.",
+          "price": 248.5,
+          "intent": "accept"
+        }
+      ]
+    },
+    "test_00361": {
+      "start_time": "2025-12-01 17:37:01.246283",
+      "end_time": "2025-12-01 17:37:58.543797",
+      "turns_taken": 8,
+      "buyer_hcv": false,
+      "seller_hcv": true,
+      "buyer_target_price": 816.0,
+      "seller_target_price": 1633.0,
+      "final_price": 976.5,
+      "buyer_utility": 0.7507763975155279,
+      "seller_utility": 0.0,
+      "fairness": 0.3929008567931457,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the Beautiful 1BR Apartment at a Great Location. Can we discuss the details?",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "seller",
+          "content": "The Beautiful 1BR Apartment at a Great Location is a fantastic option, and I'd be happy to discuss the details with you. The list price is $1633, but I'm open to negotiations. What's your proposed offer for the apartment?",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "buyer",
+          "content": "How about $816.0? I'm really on a tight budget, but I just love this apartment so much \ud83c\udfe0\u2764\ufe0f!",
+          "price": 816.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "seller",
+          "content": "I understand that you're on a tight budget, but I'm afraid $816 is quite far from our list price. I can offer a discount, but the lowest I can go is $1010, which is still a great deal considering the apartment's location and amenities.",
+          "price": 1010.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I appreciate your counteroffer of $1010, but I was thinking more along the lines of $943.0. I'm deciding between this apartment and another one, so if we can't agree on this price, I might have to consider the other option.",
+          "price": 943.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I understand you're considering another option, but I'd like to emphasize that $1010 is already a very competitive price for this apartment. While I appreciate your offer of $943, I'm afraid I won't be able to go that low. However, I can meet you halfway between my previous offer and yours at $976.5, which is the lowest I can reasonably go without compromising the value of the property.",
+          "price": 976.5,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "OK",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "I'm glad we've reached an understanding. Since you've agreed to $976.5, I'll accept that as the final price, but please note that this is a one-time concession, and I won't be able to lower it further.",
+          "price": 976.5,
+          "intent": "accept"
+        }
+      ]
+    },
+    "test_00697": {
+      "start_time": "2025-12-01 17:40:05.229353",
+      "end_time": "2025-12-01 17:41:48.378690",
+      "turns_taken": 14,
+      "buyer_hcv": false,
+      "seller_hcv": false,
+      "buyer_target_price": 1330.0,
+      "seller_target_price": 1900.0,
+      "final_price": 1580.0,
+      "buyer_utility": 0.21875,
+      "seller_utility": 0.5223880597014925,
+      "fairness": 0.8771929824561404,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the Livermore apartment. Can we discuss details?",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "seller",
+          "content": "The Livermore apartment is a fantastic opportunity, with its small complex of only 15 units, hardwood floors, and spacious 2-bedroom layout. I'd be happy to discuss details with you. What specifically would you like to know about the property?",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "buyer",
+          "content": "is apartment clean?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "The apartment is well-maintained and clean, with new carpet and hardwood floors. Would you like to schedule a viewing to see it for yourself?",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "How about $1330.0? I'm deciding between this and another one, so let me know if we can work something out.",
+          "price": 1330.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your interest in the Livermore apartment. However, $1330.0 is a bit lower than I was thinking. Considering the unique features of this property, such as its ideal location and spacious 2-bedroom layout, I'd be willing to discuss a price closer to $1800.0, which still offers great value given the amenities and condition of the apartment.",
+          "price": 1800.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I can do $1400.0, is that something you'd be willing to consider?",
+          "price": 1400.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your willingness to negotiate. While $1400.0 is a step in the right direction, I still believe the property's value lies closer to $1800.0, considering its ideal location and spacious layout. Would you be open to meeting halfway between your offer and my target price?",
+          "price": 1800.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "I can do $1480.0, I pay right now if we agree on this price.",
+          "price": 1480.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your eagerness to close the deal, but $1480.0 is still a bit lower than I'm comfortable with. Considering the property's unique features and ideal location, I'd be willing to meet you halfway between your offer and my target price of $1800.0, which would put us at around $1640.0. This way, we both get a fair deal.",
+          "price": 1640.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I really love this apartment and I'm willing to meet you closer to your price \ud83d\ude4f. How about we settle at $1520.0? It's the best I can do, and I promise to take care of the place \ud83d\ude0a.",
+          "price": 1520.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your willingness to meet me closer to my price, and I'm glad you love the apartment! However, $1520.0 is still a bit lower than I'm aiming for. Considering the property's ideal location and spacious 2-bedroom layout, I'd be willing to come down slightly from my previous offer of $1640.0, but I can only go as low as $1580.0. This way, we both get a fair deal, and you'll still be getting a great apartment at a competitive price.",
+          "price": 1580.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "OK, I'll take it.",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "Thank you for accepting the offer of $1580.0. I'm glad we could come to an agreement, and I think you'll really enjoy living in this apartment. Let's finalize the details and get the paperwork started.",
+          "price": 1580.0,
+          "intent": "accept"
+        }
+      ]
+    },
+    "test_00238": {
+      "start_time": "2025-12-01 17:17:46.197504",
+      "end_time": "2025-12-01 17:19:48.713615",
+      "turns_taken": 16,
+      "buyer_hcv": false,
+      "seller_hcv": false,
+      "buyer_target_price": 115.0,
+      "seller_target_price": 165.0,
+      "final_price": 139.0,
+      "buyer_utility": 0.4418604651162791,
+      "seller_utility": 0.559322033898305,
+      "fairness": 0.96,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the Swann 4 Camera Home Security System. What can you tell me about it?",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "seller",
+          "content": "The Swann 4 Camera Home Security System is a top-notch security solution, featuring a 4-channel DVR with 4 Pro-510 cameras, and it's also compatible with your smartphone, whether you're using Android or iOS. It's currently listed at $165.0, but I can offer you a deal. What's your budget for this kind of system?",
+          "price": 165.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I saw this for $115.0 elsewhere, can you match that price?",
+          "price": 115.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I can see why you'd want to get the best deal possible, but I can only go as low as $155.0, considering the quality and features of this system. It's still a great price for what you're getting.",
+          "price": 155.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I can do $125.0, that's my best offer.",
+          "price": 125.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your offer of $125.0, but I was thinking more along the lines of $155.0, considering the high quality and features of the Swann 4 Camera Home Security System. It's a great deal at that price, and I'm confident you won't find a better value elsewhere.",
+          "price": 155.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "I completely understand where you're coming from, but I'm really on a tight budget here \ud83d\ude0a. How about we meet in the middle at $135.0? It's the best I can do, and I promise you won't regret this purchase!",
+          "price": 135.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your willingness to compromise at $135.0, and I'm glad you're interested in the Swann 4 Camera Home Security System. However, I was thinking we could meet at $150.0, which is still a great deal considering the system's quality and features.",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "buyer",
+          "content": "Thanks",
+          "price": null,
+          "intent": "thanks"
+        },
+        {
+          "role": "seller",
+          "content": "I'm glad we could discuss the price. Since you've agreed to $135.0 earlier and I suggested $150.0, would you be willing to split the difference at $142.5, considering the system's value and your budget?",
+          "price": 142.5,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm afraid I can't go higher than $135.0, but I pay right now if we agree on this price.",
+          "price": 135.0,
+          "intent": "insist"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your eagerness to finalize the deal at $135.0, and I'm glad you're willing to pay right away. However, considering the system's quality and features, I can offer a slight adjustment from my previous suggestion of $142.5. If you're ready to pay immediately, I could meet you at $140.0.",
+          "price": 140.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I understand you're willing to adjust from $142.5 to $140.0, but honestly, considering the age and some minor flaws of the Swann 4 Camera Home Security System, I think $138.0 is a more reasonable price, especially since I'm paying immediately.",
+          "price": 138.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I see your point about the minor flaws, but considering the system's overall quality and the fact that it's still a great deal at this price point, I can offer a very small adjustment from $140.0 to $139.0, and that's as low as I can comfortably go while ensuring you get a good value for your money.",
+          "price": 139.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "OK.",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "I'm glad we've reached an understanding. Since you've agreed to my last offer of $139.0 and are ready to pay immediately, I think we have a deal.",
+          "price": 139.0,
+          "intent": "accept"
+        }
+      ]
+    },
+    "test_00777": {
+      "start_time": "2025-12-01 17:41:48.393477",
+      "end_time": "2025-12-01 17:43:36.954216",
+      "turns_taken": 14,
+      "buyer_hcv": false,
+      "seller_hcv": false,
+      "buyer_target_price": 62.0,
+      "seller_target_price": 125.0,
+      "final_price": 85.0,
+      "buyer_utility": 0.19860627177700357,
+      "seller_utility": 0.2907801418439717,
+      "fairness": 0.7301587301587302,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the futon. What's the story behind it?",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "seller",
+          "content": "The futon is a lovely piece of furniture from a smoke-free home, made with an oak frame and a comfortable Springair brand mattress. It's perfect for sitting or sleeping, and the built-in rope makes it easy to convert between couch and bed positions. I'm open to reasonable offers, but I was thinking closer to the list price of $125.",
+          "price": 125.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'll give you $62.0 for the futon, and I pay right now if we agree on this price.",
+          "price": 62.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your offer, but $62 is a bit too low for me. I'm looking for something closer to $100, considering the quality and condition of the futon.",
+          "price": 100.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I can do $67.3, that's my best offer.",
+          "price": 67.3,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your revised offer of $67.3, but I'm afraid it's still a bit short of what I'm looking for. As we previously discussed, I'm aiming for a price closer to $100, considering the futon's quality and condition.",
+          "price": 100.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "I understand you're aiming for $100, but honestly, I think that's too high for a used futon. Considering its age and the fact that it's not brand new, I'm willing to offer $72.5, which is my best price.",
+          "price": 72.5,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your willingness to negotiate, and I understand your concerns about the futon's age. However, considering its excellent condition, comfortable Springair brand mattress, and sturdy oak frame, I believe it's worth more than $72.5. I'm willing to meet you halfway between your offer and my target price, so I can do $90, but that's as low as I'm comfortable going.",
+          "price": 90.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I appreciate your counteroffer of $90, but I'm not willing to go that high. I can do $74.5, and if we don't agree on this price, I might have to consider buying a similar futon from another seller as I'm deciding between this and another one.",
+          "price": 74.5,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I understand you're considering other options, but I believe this futon's unique features, such as its oak frame and Springair brand mattress, make it a standout. I'm willing to make a small concession, so I can offer $88, which is a fair price considering the quality and condition of the futon.",
+          "price": 88.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I really love this futon, and I think we're close to a deal! \ud83e\udd1e Considering my tight budget, I can offer $81.9, which is the highest I can go. I hope we can meet at this price \ud83d\ude0a.",
+          "price": 81.9,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I'm glad you love the futon! I appreciate your highest offer of $81.9, but I'm still a bit short of where I need to be. Considering the quality and unique features of this piece, I'd be willing to meet you at $85, which is as low as I can comfortably go.",
+          "price": 85.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "OK!",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "Great, I'm glad we have an agreement! The futon is yours for $85.",
+          "price": 85.0,
+          "intent": "accept"
+        }
+      ]
+    },
+    "test_00749": {
+      "start_time": "2025-12-01 17:43:36.968109",
+      "end_time": "2025-12-01 17:45:32.055968",
+      "turns_taken": 14,
+      "buyer_hcv": false,
+      "seller_hcv": false,
+      "buyer_target_price": 300.0,
+      "seller_target_price": 600.0,
+      "final_price": 376.0,
+      "buyer_utility": 0.43283582089552236,
+      "seller_utility": 0.0,
+      "fairness": 0.5066666666666666,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the Rosewood Dining Table set. Can we discuss it?",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "seller",
+          "content": "The Rosewood Dining Table set is a beautiful piece of furniture, made from high-quality solid rosewood. It includes 8 chairs and a corner cabinet, perfect for a large family or for those who like to entertain. The list price is $600, but I'm open to reasonable offers. What's your budget for this item?",
+          "price": 600.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I think $600 is too high for this set, considering its age and the fact that it's been used. I'd be willing to pay $300.0, which I believe is a more reasonable price.",
+          "price": 300.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I understand your concerns about the price, but $300 is quite low. The set is made of high-quality solid rosewood and includes 8 chairs and a corner cabinet, which makes it a great value even at the list price. I can consider a discount, but I'd be more comfortable discussing something closer to $500.",
+          "price": 500.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'll give you $323.0 for the Rosewood Dining Table set, I pay right now if we agree on this price.",
+          "price": 323.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your willingness to pay immediately, but I'm afraid $323 is still a bit lower than I'm comfortable with. Considering the high quality and the complete set of 8 chairs and a corner cabinet, I'd be willing to meet you in the middle at $450, which is a significant discount from the list price.",
+          "price": 450.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I saw this Rosewood Dining Table set for cheaper elsewhere, but I'm willing to pay $332.0 for it from you.",
+          "price": 332.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your willingness to pay a bit more, but $332 is still below my comfortable selling price. Considering the unique quality of this Rosewood Dining Table set and the fact that it comes with 8 chairs and a corner cabinet, I'd be willing to slightly adjust my previous offer. However, I can only go as low as $400, which is a significant discount from the original list price.",
+          "price": null,
+          "intent": "vague-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'll give you $363.0 for the Rosewood Dining Table set.",
+          "price": 363.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your continued interest in the Rosewood Dining Table set. However, I must say that $363 is still a bit short of what I'm looking for. Considering the high-quality solid rosewood and the complete set with 8 chairs and a corner cabinet, I'd be willing to discuss something closer to my previous offer of $400.",
+          "price": null,
+          "intent": "vague-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'll give you $363.0 for the Rosewood Dining Table set, but if we don't agree on this price now, I might end up buying something else as I'm deciding between this and another one.",
+          "price": 363.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I understand you're considering another option, but I'm afraid $363 is still below my minimum acceptable price. I can offer you a fair deal at $400, which is a significant discount from the original list price, and it's the lowest I can go while ensuring the quality and value of the Rosewood Dining Table set are properly reflected.",
+          "price": 400.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I really love this Rosewood Dining Table set, and I'm willing to meet you halfway \ud83d\ude0a. My best offer is $376.0, and I hope we can make a deal today!",
+          "price": 376.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your enthusiasm for the Rosewood Dining Table set and your willingness to meet me halfway. Since your offer of $376 is actually at my minimum acceptable price, I'm happy to accept it and make a deal today.",
+          "price": 376.0,
+          "intent": "accept"
+        }
+      ]
+    },
+    "test_00024": {
+      "start_time": "2025-12-01 17:45:32.068977",
+      "end_time": "2025-12-01 17:46:46.663801",
+      "turns_taken": 10,
+      "buyer_hcv": false,
+      "seller_hcv": false,
+      "buyer_target_price": 380.0,
+      "seller_target_price": 500.0,
+      "final_price": 446.0,
+      "buyer_utility": 0.4358974358974359,
+      "seller_utility": 0.0,
+      "fairness": 0.9,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the Moroccan Berber Azilal Vintage Rug. What can you tell me about it?",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "seller",
+          "content": "The Moroccan Berber Azilal Vintage Rug is a unique piece, made from high-quality wool and featuring a beautiful blend of rare pinks and earth tones. It's a vintage item, measuring 2.8 x 6 feet, and would be a stunning addition to any room. We have it listed for $500, which is a very competitive price considering its rarity and quality.",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "How about $380.0? I'm really in love with this rug, but I'm on a tight budget \ud83d\ude4f.",
+          "price": 380.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "seller",
+          "content": "I understand you're on a tight budget, but I can only go as low as $446 for this unique vintage rug. It's a rare piece, and I'm already offering it at a competitive price.",
+          "price": 446.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I can do $397.0, it's the best I can offer.",
+          "price": 397.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your offer of $397.0, but I'm afraid I can't go that low. As I mentioned earlier, the lowest I can sell this unique vintage rug for is $446, considering its rarity and quality. I'm willing to meet you halfway, but I hope you can understand that I need to stay close to this price point.",
+          "price": 446.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "I'll give you $399.0 for the Moroccan Berber Azilal Vintage Rug, but if we can't agree on this price, I'm deciding between this and another one, so let's come to a decision now.",
+          "price": 399.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your revised offer of $399.0, but I'm afraid it's still a bit lower than what I can accept. As I mentioned earlier, the lowest price I can sell this unique vintage rug for is $446. Considering its rarity and quality, I'm willing to stand by this price. If you're deciding between this and another one, I understand the urgency, but I hope you can see the value in this piece and meet me at $446.",
+          "price": 446.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "OK, I'll take it.",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "Great, I'm glad we could come to an agreement! Since you've decided to take it, I'll finalize the sale at $446.0 as discussed.",
+          "price": 446.0,
+          "intent": "accept"
+        }
+      ]
+    }
+  },
+  "failed_negotiations": {
+    "test_00727": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "utility",
+        "seller_strategy": "free",
+        "buyer_agent": "damf",
+        "seller_agent": "simple"
+      },
+      "timestamp": "2025-12-01T17:46:46.678769"
+    },
+    "test_00238": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "utility",
+        "seller_strategy": "free",
+        "buyer_agent": "damf",
+        "seller_agent": "simple"
+      },
+      "timestamp": "2025-12-01T17:46:46.679063"
+    },
+    "test_00361": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "length",
+        "seller_strategy": "free",
+        "buyer_agent": "damf",
+        "seller_agent": "simple"
+      },
+      "timestamp": "2025-12-01T17:14:03.148469"
+    },
+    "test_00697": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "length",
+        "seller_strategy": "free",
+        "buyer_agent": "damf",
+        "seller_agent": "simple"
+      },
+      "timestamp": "2025-12-01T17:14:03.148484"
+    },
+    "test_00265": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "utility",
+        "seller_strategy": "free",
+        "buyer_agent": "damf",
+        "seller_agent": "simple"
+      },
+      "timestamp": "2025-12-01T17:46:46.679505"
+    },
+    "test_00287": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "utility",
+        "seller_strategy": "free",
+        "buyer_agent": "damf",
+        "seller_agent": "simple"
+      },
+      "timestamp": "2025-12-01T17:46:46.679513"
+    },
+    "test_00518": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "utility",
+        "seller_strategy": "free",
+        "buyer_agent": "damf",
+        "seller_agent": "simple"
+      },
+      "timestamp": "2025-12-01T17:46:46.679517"
+    },
+    "test_00777": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "utility",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T16:56:05.170059"
+    },
+    "test_00749": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "utility",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T16:56:05.170063"
+    },
+    "test_00024": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "fair",
+        "seller_strategy": "free",
+        "buyer_agent": "damf",
+        "seller_agent": "simple"
+      },
+      "timestamp": "2025-12-01T17:30:32.454914"
+    },
+    "test_00385": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "utility",
+        "seller_strategy": "free",
+        "buyer_agent": "damf",
+        "seller_agent": "simple"
+      },
+      "timestamp": "2025-12-01T17:46:46.679801"
+    },
+    "test_00726": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "utility",
+        "seller_strategy": "free",
+        "buyer_agent": "damf",
+        "seller_agent": "simple"
+      },
+      "timestamp": "2025-12-01T17:46:46.679810"
+    },
+    "test_00449": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "utility",
+        "seller_strategy": "free",
+        "buyer_agent": "damf",
+        "seller_agent": "simple"
+      },
+      "timestamp": "2025-12-01T17:46:46.679814"
+    },
+    "test_00447": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "utility",
+        "seller_strategy": "free",
+        "buyer_agent": "damf",
+        "seller_agent": "simple"
+      },
+      "timestamp": "2025-12-01T17:46:46.679819"
+    },
+    "test_00613": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "utility",
+        "seller_strategy": "free",
+        "buyer_agent": "damf",
+        "seller_agent": "simple"
+      },
+      "timestamp": "2025-12-01T17:46:46.679823"
+    },
+    "test_00756": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "utility",
+        "seller_strategy": "free",
+        "buyer_agent": "damf",
+        "seller_agent": "simple"
+      },
+      "timestamp": "2025-12-01T17:46:46.679827"
+    },
+    "test_00577": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "utility",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T16:56:05.170031"
+    },
+    "test_00760": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "fair",
+        "seller_strategy": "free",
+        "buyer_agent": "damf",
+        "seller_agent": "simple"
+      },
+      "timestamp": "2025-12-01T17:30:32.454596"
+    },
+    "test_00655": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "utility",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T16:56:05.170022"
+    },
+    "test_00007": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "utility",
+        "seller_strategy": "free",
+        "buyer_agent": "damf",
+        "seller_agent": "simple"
+      },
+      "timestamp": "2025-12-01T17:46:46.678756"
+    }
+  },
+  "model_pair_metrics": {
+    "llama3.3:70b:length:damf_llama3.3:70b:length:damf": {
+      "buyer_model": "llama3.3:70b:length:damf",
+      "seller_model": "llama3.3:70b:length:damf",
+      "num_negotiations": 4,
+      "seller_hcv": 0,
+      "buyer_hcv": 3,
+      "deal_rate": 0.2,
+      "seller_hcv_rate": 0.0,
+      "buyer_hcv_rate": 0.15,
+      "avg_turns": 11.0,
+      "avg_buyer_utility": 0.20114942528735627,
+      "avg_seller_utility": 0.8764880952380952,
+      "avg_duration": 58.332751,
+      "avg_fairness": 0.08500000000000013
+    },
+    "llama3.3:70b:length:damf_llama3.3:70b:fair:damf": {
+      "buyer_model": "llama3.3:70b:length:damf",
+      "seller_model": "llama3.3:70b:fair:damf",
+      "num_negotiations": 6,
+      "seller_hcv": 0,
+      "buyer_hcv": 1,
+      "deal_rate": 0.3,
+      "seller_hcv_rate": 0.0,
+      "buyer_hcv_rate": 0.05,
+      "avg_turns": 13.166666666666668,
+      "avg_buyer_utility": 0.4442556583388133,
+      "avg_seller_utility": 0.5977260110298344,
+      "avg_duration": 78.50566766666667,
+      "avg_fairness": 0.4702511446575096
+    },
+    "llama3.3:70b:length:damf_llama3.3:70b:utility:damf": {
+      "buyer_model": "llama3.3:70b:length:damf",
+      "seller_model": "llama3.3:70b:utility:damf",
+      "num_negotiations": 4,
+      "seller_hcv": 0,
+      "buyer_hcv": 3,
+      "deal_rate": 0.2,
+      "seller_hcv_rate": 0.0,
+      "buyer_hcv_rate": 0.15,
+      "avg_turns": 13.0,
+      "avg_buyer_utility": 0.21052631578947367,
+      "avg_seller_utility": 0.8594054580896686,
+      "avg_duration": 77.19617275,
+      "avg_fairness": 0.23484848484848486
+    },
+    "llama3.3:70b:fair:damf_llama3.3:70b:length:damf": {
+      "buyer_model": "llama3.3:70b:fair:damf",
+      "seller_model": "llama3.3:70b:length:damf",
+      "num_negotiations": 5,
+      "seller_hcv": 1,
+      "buyer_hcv": 2,
+      "deal_rate": 0.25,
+      "seller_hcv_rate": 0.05,
+      "buyer_hcv_rate": 0.1,
+      "avg_turns": 14.6,
+      "avg_buyer_utility": 0.14794736250140592,
+      "avg_seller_utility": 0.5966916342088618,
+      "avg_duration": 94.525698,
+      "avg_fairness": 0.44857687991021317
+    },
+    "llama3.3:70b:fair:damf_llama3.3:70b:fair:damf": {
+      "buyer_model": "llama3.3:70b:fair:damf",
+      "seller_model": "llama3.3:70b:fair:damf",
+      "num_negotiations": 9,
+      "seller_hcv": 0,
+      "buyer_hcv": 0,
+      "deal_rate": 0.45,
+      "seller_hcv_rate": 0.0,
+      "buyer_hcv_rate": 0.0,
+      "avg_turns": 13.222222222222221,
+      "avg_buyer_utility": 0.5481159382355821,
+      "avg_seller_utility": 0.6546836796521983,
+      "avg_duration": 74.28879611111111,
+      "avg_fairness": 0.5900331794171043
+    },
+    "llama3.3:70b:fair:damf_llama3.3:70b:utility:damf": {
+      "buyer_model": "llama3.3:70b:fair:damf",
+      "seller_model": "llama3.3:70b:utility:damf",
+      "num_negotiations": 5,
+      "seller_hcv": 1,
+      "buyer_hcv": 1,
+      "deal_rate": 0.25,
+      "seller_hcv_rate": 0.05,
+      "buyer_hcv_rate": 0.05,
+      "avg_turns": 16.8,
+      "avg_buyer_utility": 0.26451844289641546,
+      "avg_seller_utility": 0.5258625573011431,
+      "avg_duration": 109.2346944,
+      "avg_fairness": 0.4914013575164126
+    },
+    "llama3.3:70b:utility:damf_llama3.3:70b:length:damf": {
+      "buyer_model": "llama3.3:70b:utility:damf",
+      "seller_model": "llama3.3:70b:length:damf",
+      "num_negotiations": 6,
+      "seller_hcv": 2,
+      "buyer_hcv": 1,
+      "deal_rate": 0.3,
+      "seller_hcv_rate": 0.1,
+      "buyer_hcv_rate": 0.05,
+      "avg_turns": 11.666666666666666,
+      "avg_buyer_utility": 0.37157097288676244,
+      "avg_seller_utility": 0.43879870129870113,
+      "avg_duration": 86.31416949999999,
+      "avg_fairness": 0.6080303030303031
+    },
+    "llama3.3:70b:utility:damf_llama3.3:70b:fair:damf": {
+      "buyer_model": "llama3.3:70b:utility:damf",
+      "seller_model": "llama3.3:70b:fair:damf",
+      "num_negotiations": 8,
+      "seller_hcv": 1,
+      "buyer_hcv": 1,
+      "deal_rate": 0.4,
+      "seller_hcv_rate": 0.05,
+      "buyer_hcv_rate": 0.05,
+      "avg_turns": 9.875,
+      "avg_buyer_utility": 0.6927442123094297,
+      "avg_seller_utility": 0.5251058809447019,
+      "avg_duration": 59.263405875,
+      "avg_fairness": 0.3897208931419458
+    },
+    "llama3.3:70b:utility:damf_llama3.3:70b:utility:damf": {
+      "buyer_model": "llama3.3:70b:utility:damf",
+      "seller_model": "llama3.3:70b:utility:damf",
+      "num_negotiations": 6,
+      "seller_hcv": 1,
+      "buyer_hcv": 3,
+      "deal_rate": 0.3,
+      "seller_hcv_rate": 0.05,
+      "buyer_hcv_rate": 0.15,
+      "avg_turns": 10.5,
+      "avg_buyer_utility": 0.2076432022084196,
+      "avg_seller_utility": 0.6911662613435683,
+      "avg_duration": 66.88126233333334,
+      "avg_fairness": 0.2046296296296296
+    },
+    "llama3.3:70b:length:damf_llama3.3:70b:length:search": {
+      "buyer_model": "llama3.3:70b:length:damf",
+      "seller_model": "llama3.3:70b:length:search",
+      "num_negotiations": 4,
+      "seller_hcv": 0,
+      "buyer_hcv": 1,
+      "deal_rate": 0.2,
+      "seller_hcv_rate": 0.0,
+      "buyer_hcv_rate": 0.05,
+      "avg_turns": 11.75,
+      "avg_buyer_utility": 0.41185383244206764,
+      "avg_seller_utility": 0.649651506794364,
+      "avg_duration": 42.15204825,
+      "avg_fairness": 0.42462121212121207
+    },
+    "llama3.3:70b:length:damf_llama3.3:70b:fair:search": {
+      "buyer_model": "llama3.3:70b:length:damf",
+      "seller_model": "llama3.3:70b:fair:search",
+      "num_negotiations": 8,
+      "seller_hcv": 0,
+      "buyer_hcv": 1,
+      "deal_rate": 0.4,
+      "seller_hcv_rate": 0.0,
+      "buyer_hcv_rate": 0.05,
+      "avg_turns": 12.0,
+      "avg_buyer_utility": 0.669354103078861,
+      "avg_seller_utility": 0.6600970791503153,
+      "avg_duration": 40.78779525,
+      "avg_fairness": 0.35078216374269
+    },
+    "llama3.3:70b:length:damf_llama3.3:70b:utility:search": {
+      "buyer_model": "llama3.3:70b:length:damf",
+      "seller_model": "llama3.3:70b:utility:search",
+      "num_negotiations": 4,
+      "seller_hcv": 0,
+      "buyer_hcv": 1,
+      "deal_rate": 0.2,
+      "seller_hcv_rate": 0.0,
+      "buyer_hcv_rate": 0.05,
+      "avg_turns": 12.25,
+      "avg_buyer_utility": 0.4114774114774114,
+      "avg_seller_utility": 0.6538594578115473,
+      "avg_duration": 40.394406000000004,
+      "avg_fairness": 0.25507575757575773
+    },
+    "llama3.3:70b:fair:damf_llama3.3:70b:length:search": {
+      "buyer_model": "llama3.3:70b:fair:damf",
+      "seller_model": "llama3.3:70b:length:search",
+      "num_negotiations": 7,
+      "seller_hcv": 0,
+      "buyer_hcv": 0,
+      "deal_rate": 0.35,
+      "seller_hcv_rate": 0.0,
+      "buyer_hcv_rate": 0.0,
+      "avg_turns": 14.285714285714286,
+      "avg_buyer_utility": 0.37731359377158524,
+      "avg_seller_utility": 0.614201608828021,
+      "avg_duration": 67.43311485714287,
+      "avg_fairness": 0.679037745879851
+    },
+    "llama3.3:70b:fair:damf_llama3.3:70b:fair:search": {
+      "buyer_model": "llama3.3:70b:fair:damf",
+      "seller_model": "llama3.3:70b:fair:search",
+      "num_negotiations": 11,
+      "seller_hcv": 0,
+      "buyer_hcv": 0,
+      "deal_rate": 0.55,
+      "seller_hcv_rate": 0.0,
+      "buyer_hcv_rate": 0.0,
+      "avg_turns": 15.727272727272725,
+      "avg_buyer_utility": 0.3847238986792402,
+      "avg_seller_utility": 0.6206908120876456,
+      "avg_duration": 69.38571309090909,
+      "avg_fairness": 0.7558219992432373
+    },
+    "llama3.3:70b:fair:damf_llama3.3:70b:utility:search": {
+      "buyer_model": "llama3.3:70b:fair:damf",
+      "seller_model": "llama3.3:70b:utility:search",
+      "num_negotiations": 7,
+      "seller_hcv": 1,
+      "buyer_hcv": 2,
+      "deal_rate": 0.35,
+      "seller_hcv_rate": 0.05,
+      "buyer_hcv_rate": 0.1,
+      "avg_turns": 15.0,
+      "avg_buyer_utility": 0.18367076037378202,
+      "avg_seller_utility": 0.6035912015709224,
+      "avg_duration": 64.22896228571429,
+      "avg_fairness": 0.24606224864486795
+    },
+    "llama3.3:70b:utility:damf_llama3.3:70b:length:search": {
+      "buyer_model": "llama3.3:70b:utility:damf",
+      "seller_model": "llama3.3:70b:length:search",
+      "num_negotiations": 5,
+      "seller_hcv": 1,
+      "buyer_hcv": 0,
+      "deal_rate": 0.25,
+      "seller_hcv_rate": 0.05,
+      "buyer_hcv_rate": 0.0,
+      "avg_turns": 9.6,
+      "avg_buyer_utility": 0.6310298102981029,
+      "avg_seller_utility": 0.4723635423764657,
+      "avg_duration": 41.951607599999996,
+      "avg_fairness": 0.3813939393939393
+    },
+    "llama3.3:70b:utility:damf_llama3.3:70b:fair:search": {
+      "buyer_model": "llama3.3:70b:utility:damf",
+      "seller_model": "llama3.3:70b:fair:search",
+      "num_negotiations": 9,
+      "seller_hcv": 0,
+      "buyer_hcv": 2,
+      "deal_rate": 0.45,
+      "seller_hcv_rate": 0.0,
+      "buyer_hcv_rate": 0.1,
+      "avg_turns": 11.666666666666666,
+      "avg_buyer_utility": 0.42713163394874265,
+      "avg_seller_utility": 0.6235076477976791,
+      "avg_duration": 53.03186544444445,
+      "avg_fairness": 0.5798078981024717
+    },
+    "llama3.3:70b:length:damf_llama3.3:70b:free:simple": {
+      "buyer_model": "llama3.3:70b:length:damf",
+      "seller_model": "llama3.3:70b:free:simple",
+      "num_negotiations": 7,
+      "seller_hcv": 0,
+      "buyer_hcv": 1,
+      "deal_rate": 0.35,
+      "seller_hcv_rate": 0.0,
+      "buyer_hcv_rate": 0.05,
+      "avg_turns": 11.714285714285714,
+      "avg_buyer_utility": 0.6283274573250545,
+      "avg_seller_utility": 0.3047700046726653,
+      "avg_duration": 88.34952285714286,
+      "avg_fairness": 0.5058956916099774
+    },
+    "llama3.3:70b:fair:damf_llama3.3:70b:free:simple": {
+      "buyer_model": "llama3.3:70b:fair:damf",
+      "seller_model": "llama3.3:70b:free:simple",
+      "num_negotiations": 9,
+      "seller_hcv": 0,
+      "buyer_hcv": 0,
+      "deal_rate": 0.45,
+      "seller_hcv_rate": 0.0,
+      "buyer_hcv_rate": 0.0,
+      "avg_turns": 12.222222222222221,
+      "avg_buyer_utility": 0.3906369559412859,
+      "avg_seller_utility": 0.37331551830710374,
+      "avg_duration": 93.6229872222222,
+      "avg_fairness": 0.8156205858001042
+    },
+    "llama3.3:70b:utility:damf_llama3.3:70b:free:simple": {
+      "buyer_model": "llama3.3:70b:utility:damf",
+      "seller_model": "llama3.3:70b:free:simple",
+      "num_negotiations": 8,
+      "seller_hcv": 1,
+      "buyer_hcv": 0,
+      "deal_rate": 0.4,
+      "seller_hcv_rate": 0.05,
+      "buyer_hcv_rate": 0.0,
+      "avg_turns": 12.375,
+      "avg_buyer_utility": 0.3706752480533845,
+      "avg_seller_utility": 0.3053340882562461,
+      "avg_duration": 95.93848775000001,
+      "avg_fairness": 0.681960583521681
+    }
+  }
+}

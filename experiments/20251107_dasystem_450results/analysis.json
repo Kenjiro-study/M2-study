@@ -1,0 +1,454 @@
+{
+  "strategy_summary": [
+    {
+      "strategy": "fair",
+      "success_rate": 1.0,
+      "avg_turns": 12.992932862190813,
+      "avg_utility": 0.397004950606425
+    },
+    {
+      "strategy": "utility",
+      "success_rate": 1.0,
+      "avg_turns": 12.729468599033817,
+      "avg_utility": 0.5220728601701706
+    },
+    {
+      "strategy": "length",
+      "success_rate": 1.0,
+      "avg_turns": 14.46788990825688,
+      "avg_utility": 0.5138172081623148
+    },
+    {
+      "strategy": "free",
+      "success_rate": 0.0,
+      "avg_turns": 0.0,
+      "avg_utility": 0.0
+    }
+  ],
+  "model_summary": [
+    {
+      "buyer_model": "llama3.3:70b:length",
+      "seller_model": "llama3.3:70b:length",
+      "num_negotiations": 34,
+      "success_rate": 1.0,
+      "avg_efficiency": 0.2587508796747794,
+      "avg_fairness": -45.756801470588236
+    },
+    {
+      "buyer_model": "llama3.3:70b:length",
+      "seller_model": "llama3.3:70b:fair",
+      "num_negotiations": 46,
+      "success_rate": 1.0,
+      "avg_efficiency": 0.29531478617975965,
+      "avg_fairness": -50.10050271739131
+    },
+    {
+      "buyer_model": "llama3.3:70b:length",
+      "seller_model": "llama3.3:70b:utility",
+      "num_negotiations": 22,
+      "success_rate": 1.0,
+      "avg_efficiency": 0.3029180435734331,
+      "avg_fairness": -48.493323863636355
+    },
+    {
+      "buyer_model": "llama3.3:70b:fair",
+      "seller_model": "llama3.3:70b:length",
+      "num_negotiations": 46,
+      "success_rate": 1.0,
+      "avg_efficiency": 0.2918568742131621,
+      "avg_fairness": -63.709850543478254
+    },
+    {
+      "buyer_model": "llama3.3:70b:fair",
+      "seller_model": "llama3.3:70b:fair",
+      "num_negotiations": 48,
+      "success_rate": 1.0,
+      "avg_efficiency": 0.32584550803052265,
+      "avg_fairness": -54.349446614583336
+    },
+    {
+      "buyer_model": "llama3.3:70b:fair",
+      "seller_model": "llama3.3:70b:utility",
+      "num_negotiations": 47,
+      "success_rate": 1.0,
+      "avg_efficiency": 0.29664486494818143,
+      "avg_fairness": -57.24867021276596
+    },
+    {
+      "buyer_model": "llama3.3:70b:utility",
+      "seller_model": "llama3.3:70b:length",
+      "num_negotiations": 36,
+      "success_rate": 1.0,
+      "avg_efficiency": 0.2927817517730762,
+      "avg_fairness": -62.934374999999996
+    },
+    {
+      "buyer_model": "llama3.3:70b:utility",
+      "seller_model": "llama3.3:70b:fair",
+      "num_negotiations": 48,
+      "success_rate": 1.0,
+      "avg_efficiency": 0.33752447524385976,
+      "avg_fairness": -52.028430989583335
+    },
+    {
+      "buyer_model": "llama3.3:70b:utility",
+      "seller_model": "llama3.3:70b:utility",
+      "num_negotiations": 27,
+      "success_rate": 1.0,
+      "avg_efficiency": 0.321474671154701,
+      "avg_fairness": -56.766666666666666
+    }
+  ],
+  "negotiations": {
+    "test_00156": {
+      "success": true,
+      "efficiency": 0.2490588458404838,
+      "fairness": 0.10000000000000009,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.14229249011857711
+    },
+    "test_00222": {
+      "success": true,
+      "efficiency": 0.3150321797278769,
+      "fairness": 0.07499999999999996,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.19631901840490792
+    },
+    "test_00135": {
+      "success": true,
+      "efficiency": 0.3895819809311516,
+      "fairness": -6.0625,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.3793103448275862
+    },
+    "test_00279": {
+      "success": true,
+      "efficiency": 0.3024128595631754,
+      "fairness": -0.03125,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.052631578947368404
+    },
+    "test_00040": {
+      "success": true,
+      "efficiency": 0.3313131699688881,
+      "fairness": -0.13124999999999998,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.2456140350877193
+    },
+    "test_00184": {
+      "success": true,
+      "efficiency": 0.4158779961169272,
+      "fairness": 0.07499999999999996,
+      "avg_response_time": 0.0,
+      "price_convergence": 1.0
+    },
+    "test_00443": {
+      "success": true,
+      "efficiency": 0.38547971146770665,
+      "fairness": -0.7209375,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.2536136662286465
+    },
+    "test_00805": {
+      "success": true,
+      "efficiency": 0.3370741722429777,
+      "fairness": 0.15937500000000004,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.07235621521335804
+    },
+    "test_00060": {
+      "success": true,
+      "efficiency": 0.32874031465799575,
+      "fairness": -2.59375,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.35135135135135137
+    },
+    "test_00388": {
+      "success": true,
+      "efficiency": 0.231293547549121,
+      "fairness": -71.53125,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.08664850136239782
+    },
+    "test_00106": {
+      "success": true,
+      "efficiency": 0.2959671001061585,
+      "fairness": -97.78125,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.09186906019007392
+    },
+    "test_00322": {
+      "success": true,
+      "efficiency": 0.2849269865312284,
+      "fairness": -77.78125,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.21495327102803738
+    },
+    "test_00801": {
+      "success": true,
+      "efficiency": 0.16918931479408905,
+      "fairness": -32.78125,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.12669683257918551
+    },
+    "test_00330": {
+      "success": true,
+      "efficiency": 0.29904446769675247,
+      "fairness": -43.71875,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.01390644753476612
+    },
+    "test_00488": {
+      "success": true,
+      "efficiency": 0.21443729687974544,
+      "fairness": -95.59375,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.13447432762836187
+    },
+    "test_00208": {
+      "success": true,
+      "efficiency": 0.36438381654143576,
+      "fairness": -100.59375,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.36464088397790057
+    },
+    "test_00716": {
+      "success": true,
+      "efficiency": 0.33414073561840923,
+      "fairness": -34.34375,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.10606060606060606
+    },
+    "test_00374": {
+      "success": true,
+      "efficiency": 0.3151798486102615,
+      "fairness": -68.09375,
+      "avg_response_time": 0.0,
+      "price_convergence": 1.0
+    },
+    "test_00110": {
+      "success": true,
+      "efficiency": 0.8079906738258508,
+      "fairness": -313.6875,
+      "avg_response_time": 0.0,
+      "price_convergence": 1.0
+    },
+    "test_00607": {
+      "success": true,
+      "efficiency": 0.3242452126379528,
+      "fairness": 0.70625,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.17054263565891464
+    },
+    "test_00692": {
+      "success": true,
+      "efficiency": 0.308244486471257,
+      "fairness": -1.84375,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.07462686567164178
+    },
+    "test_00307": {
+      "success": true,
+      "efficiency": 0.32895773000636935,
+      "fairness": -104.34375,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.30337078651685395
+    },
+    "test_00266": {
+      "success": true,
+      "efficiency": 0.2927263896773549,
+      "fairness": -187.46875,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.09130913091309131
+    },
+    "test_00605": {
+      "success": true,
+      "efficiency": 0.27834684534500287,
+      "fairness": -113.09375,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.08333333333333333
+    },
+    "test_00530": {
+      "success": true,
+      "efficiency": 0.3063420880727222,
+      "fairness": -169.96875,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.1223203026481715
+    },
+    "test_00777": {
+      "success": true,
+      "efficiency": 0.3205470509980502,
+      "fairness": -0.15625,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.35454545454545455
+    },
+    "test_00477": {
+      "success": true,
+      "efficiency": 0.30735166762873667,
+      "fairness": -4.5625,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.08759124087591241
+    },
+    "test_00163": {
+      "success": true,
+      "efficiency": 0.30514520234794756,
+      "fairness": -0.84375,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.10440835266821345
+    },
+    "test_00147": {
+      "success": true,
+      "efficiency": 0.30709517099243905,
+      "fairness": -0.44999999999999996,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.19565217391304357
+    },
+    "test_00331": {
+      "success": true,
+      "efficiency": 0.2787608033302631,
+      "fairness": 0.41874999999999996,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.21357285429141715
+    },
+    "test_00420": {
+      "success": true,
+      "efficiency": 0.39308323167531095,
+      "fairness": -14.65625,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.3691275167785235
+    },
+    "test_00820": {
+      "success": true,
+      "efficiency": 0.3264997082941037,
+      "fairness": -13.96875,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.16097560975609757
+    },
+    "test_00471": {
+      "success": true,
+      "efficiency": 0.2618046221693031,
+      "fairness": -4.0,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.11895910780669144
+    },
+    "test_00069": {
+      "success": true,
+      "efficiency": 0.4161076090440268,
+      "fairness": -9.03125,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.03225806451612903
+    },
+    "test_00079": {
+      "success": true,
+      "efficiency": 0.3013272163443736,
+      "fairness": 0.578125,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.04
+    },
+    "test_00516": {
+      "success": true,
+      "efficiency": 0.4179891525953221,
+      "fairness": -3.125,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.05263157894736842
+    },
+    "test_00657": {
+      "success": true,
+      "efficiency": 0.28876975212415107,
+      "fairness": -0.11875000000000002,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.3736842105263158
+    },
+    "test_00608": {
+      "success": true,
+      "efficiency": 0.33120465190995835,
+      "fairness": -0.2593749999999999,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.13167259786476865
+    },
+    "test_00346": {
+      "success": true,
+      "efficiency": 0.22437662778819586,
+      "fairness": -35.28125,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.1791363830696879
+    },
+    "test_00354": {
+      "success": true,
+      "efficiency": 0.3085818520797422,
+      "fairness": -91.21875,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.14705882352941177
+    },
+    "test_00332": {
+      "success": true,
+      "efficiency": 0.261230873601759,
+      "fairness": -61.84375,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.1676300578034682
+    },
+    "test_00476": {
+      "success": true,
+      "efficiency": 0.3085939847368221,
+      "fairness": -391.21875,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.08843537414965986
+    },
+    "test_00291": {
+      "success": true,
+      "efficiency": 0.30967259154885535,
+      "fairness": -68.71875,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.09584086799276673
+    },
+    "test_00802": {
+      "success": true,
+      "efficiency": 0.25766590917554666,
+      "fairness": -103.40625,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.13631156930126
+    },
+    "test_00563": {
+      "success": true,
+      "efficiency": 0.2943582017568119,
+      "fairness": -24.0625,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.16036228023441662
+    },
+    "test_00711": {
+      "success": true,
+      "efficiency": 0.32637039852509425,
+      "fairness": -98.09375,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.14583333333333334
+    },
+    "test_00456": {
+      "success": true,
+      "efficiency": 0.2152473569967588,
+      "fairness": -11.78125,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.08248587570621468
+    },
+    "test_00259": {
+      "success": true,
+      "efficiency": 0.2727637121975832,
+      "fairness": 0.5125000000000002,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.31898238747553803
+    },
+    "test_00089": {
+      "success": true,
+      "efficiency": 0.17987275484188028,
+      "fairness": -7.6875,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.07151819322459223
+    },
+    "test_00481": {
+      "success": true,
+      "efficiency": 0.24125748408100348,
+      "fairness": -107.46875,
+      "avg_response_time": 0.0,
+      "price_convergence": 0.17988394584139264
+    }
+  }
+}

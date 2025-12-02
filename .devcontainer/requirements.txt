@@ -1,0 +1,40 @@
+transformers
+torch
+accelerate
+bitsandbytes
+
+dspy
+dspy-ai
+sentencepiece
+
+# Jupyter Notebook packages
+notebook
+jupyterlab
+ipywidgets
+
+# Data Science packages
+numpy
+pandas
+matplotlib
+
+# PyTorch packages
+#torch
+torchvision
+torchaudio
+triton # PyTorch backend for TorchInductor
+#bitsandbytes # for model quantization
+peft # need Parameter-Efficient Fine-Tuning to finetune quantized models
+
+# Huggingface ecosystem packages
+#transformers
+datasets
+#accelerate
+
+# Machine Learning packages
+scikit-learn
+tqdm # for progress bars
+tensorboard
+
+# nltk
+nltk
+gradio

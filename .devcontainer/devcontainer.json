@@ -1,0 +1,33 @@
+{
+    "name": "Llama3 Negotiation Bot (GPU)",
+    "dockerFile": "Dockerfile",
+
+    // VS Codeからコンテナを起動する際の追加引数
+    "runArgs": [
+        "--gpus=all",
+        "--env-file", "${localWorkspaceFolder}/.env"
+    ],
+
+    // ホストのフォルダをコンテナにマウントする設定を明示的に記述
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+    ],
+
+    // コンテナ内のワークスペースとしてマウントするフォルダを指定
+    "workspaceFolder": "/workspace",
+
+    // --- ここから自動実行コマンドを追加 ---
+    "postCreateCommand": "chmod +x .devcontainer/init.sh",
+    "postStartCommand": ".devcontainer/init.sh",
+    // --- ここまで追加 ---
+
+    // VS Codeの設定をカスタマイズ
+    "customizations": {
+        "vscode": {
+            // コンテナ内に自動でインストールするVS Code拡張機能
+            "extensions": [
+                "ms-python.python"
+            ]
+        }
+    }
+}

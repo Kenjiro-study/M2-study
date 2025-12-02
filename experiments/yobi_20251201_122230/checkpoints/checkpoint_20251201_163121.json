@@ -1,0 +1,1673 @@
+{
+  "state": {
+    "experiment_name": "yobi",
+    "config": {
+      "num_scenarios": 20,
+      "max_turns": 20,
+      "turn_timeout": 30.0,
+      "models": [
+        "llama3.3:70b"
+      ],
+      "strategies": [
+        "length",
+        "fair",
+        "utility"
+      ],
+      "agents": [
+        "damf",
+        "search",
+        "simple",
+        "all"
+      ]
+    },
+    "start_time": "2025-12-01 12:22:30.766276",
+    "scenarios_total": 20,
+    "scenarios_completed": 94,
+    "scenarios_failed": 206,
+    "last_checkpoint": "2025-12-01 16:17:56.710881"
+  },
+  "completed_negotiations": {
+    "test_00007": {
+      "start_time": "2025-12-01 16:17:56.713926",
+      "end_time": "2025-12-01 16:18:38.847387",
+      "turns_taken": 13,
+      "buyer_hcv": true,
+      "seller_hcv": false,
+      "buyer_target_price": 253.0,
+      "seller_target_price": 275.0,
+      "final_price": 275.0,
+      "buyer_utility": 0.0,
+      "seller_utility": 1.0,
+      "fairness": 0.0,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the Samsung Gear S3 Classic. What's the story behind it?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "great condition, sounds great",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "How's the shipping?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "i've had it about 5 months. looking to go bigger.",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "how's the screen?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "2 years warranty",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "How about $253.0? I pay right now.",
+          "price": 253.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "seller",
+          "content": "i wouldn't let it go for less than 275.0",
+          "price": 275.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I saw this for $260.0 elsewhere, so I can do $260.0, but that's my best offer.",
+          "price": 260.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "no go 275.0 or nothing.",
+          "price": 275.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "I'll take it.",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "<offer>",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm excited to finalize the deal. Buying now, thank you!",
+          "price": 275.0,
+          "intent": "accept"
+        }
+      ]
+    },
+    "test_00655": {
+      "start_time": "2025-12-01 16:07:09.037178",
+      "end_time": "2025-12-01 16:07:56.920267",
+      "turns_taken": 13,
+      "buyer_hcv": false,
+      "seller_hcv": false,
+      "buyer_target_price": 90.0,
+      "seller_target_price": 100.0,
+      "final_price": 92.9,
+      "buyer_utility": 0.6329113924050629,
+      "seller_utility": 0.7300380228136883,
+      "fairness": 0.5800000000000012,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the Panasonic 32\" TV. What's the story with it?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "Panasonic 32\" TV",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "How's the TV condition?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "yes, absolutely. the quality is superior to anything else you can find",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "How will you ship it?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "i would be willing too",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "How about $90.0? I saw this for less elsewhere, so I think we can discuss a better price.",
+          "price": 90.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "seller",
+          "content": "i'd be willing to go down to 100.0, but no lower.",
+          "price": 100.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm not convinced the TV is worth that much, considering its age and the fact it needs a universal remote. I can offer $92.3, which is my best price.",
+          "price": 92.3,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "i can't do 92.3. 92.9 and we have a deal.",
+          "price": 92.9,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'll take it.",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "no that's way too low",
+          "price": null,
+          "intent": "vague-price"
+        },
+        {
+          "role": "buyer",
+          "content": "Deal! I'm excited to finalize the purchase of the Panasonic 32\" TV for $92.9.",
+          "price": 92.9,
+          "intent": "accept"
+        }
+      ]
+    },
+    "test_00577": {
+      "start_time": "2025-12-01 16:21:29.895979",
+      "end_time": "2025-12-01 16:22:40.344698",
+      "turns_taken": 17,
+      "buyer_hcv": true,
+      "seller_hcv": false,
+      "buyer_target_price": 2160.0,
+      "seller_target_price": 2400.0,
+      "final_price": 2380.0,
+      "buyer_utility": 0.0,
+      "seller_utility": 0.9310344827586207,
+      "fairness": 0.16666666666666663,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the Carports, Large Spacious Units, Recreation Area, Pool, Heating. Can we discuss the details?",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "seller",
+          "content": "hey, interested in the apartment",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "buyer",
+          "content": "What is condition of apartment?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "parks, nice lawns, and resort style ammenities.",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm a student on a tight budget, so I'm looking for something affordable. What kind of prices are we talking about for this apartment?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "a little",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "How about $2160.0?",
+          "price": 2160.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "seller",
+          "content": "could you do 2400.0?",
+          "price": 2400.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm really interested in this apartment, but $2400.0 is a bit out of my budget \ud83e\udd15. How about we meet in the middle at $2220.0? \ud83d\ude0a",
+          "price": 2220.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "i'm afraid that won't work. 2400.0 is a final offer. sorry.",
+          "price": 2400.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm still very interested in the apartment, but $2400.0 is a bit too expensive for me. Can you lower it? I'm deciding between this and another one, so if we can't come to an agreement, I might have to go with the other option.",
+          "price": null,
+          "intent": "vague-price"
+        },
+        {
+          "role": "seller",
+          "content": "i can do 2380.0 ...",
+          "price": 2380.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'll give you $2240.0, and I pay right now if we can agree on this price.",
+          "price": 2240.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "how about 2380.0 for security deposit?",
+          "price": 2380.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "I'll take it.",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "<offer>",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm excited to finalize the deal. Buying now!",
+          "price": 2380.0,
+          "intent": "accept"
+        }
+      ]
+    },
+    "test_00760": {
+      "start_time": "2025-12-01 16:11:20.327461",
+      "end_time": "2025-12-01 16:12:51.573240",
+      "turns_taken": 19,
+      "buyer_hcv": false,
+      "seller_hcv": false,
+      "buyer_target_price": 647.0,
+      "seller_target_price": 1295.0,
+      "final_price": 985.0,
+      "buyer_utility": 0.35372848948374763,
+      "seller_utility": 0.5055821371610846,
+      "fairness": 0.9567901234567902,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the studio apartment. Can we discuss the details?",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "seller",
+          "content": "hi there. how r u?",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "buyer",
+          "content": "How is the apartment's condition?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "it is about 20x20.",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "Is apartment clean and quiet?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "yes",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "How about $647.0? Honestly, considering the age and condition of the apartment, I think that's a fair price.",
+          "price": 647.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "seller",
+          "content": "how about 1300.0 and i will throw in free internet and cable?",
+          "price": 1300.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I really love the apartment, but $1300 is a bit out of my budget \ud83d\ude0a. How about we meet in the middle at $717.0? You'd still be getting a great deal, and I'd really appreciate the free internet and cable!",
+          "price": 717.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "ok how about. 1180.0",
+          "price": 1180.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "How about $813.0?",
+          "price": 813.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "how about 1010.0",
+          "price": 1010.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I can do $894.0, and I pay right now if we agree on this price.",
+          "price": 894.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "ya that is far too low like i said 1010.0",
+          "price": null,
+          "intent": "vague-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I saw this for $950 elsewhere, but I'm willing to pay $980.0 for yours.",
+          "price": 980.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "the lowest i can go is 985.0",
+          "price": 985.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "OK, I'll take it.",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "with a  deposit, correct?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "buyer",
+          "content": "Deal! I'm excited to finalize the purchase of the studio apartment for $985.0.",
+          "price": 985.0,
+          "intent": "accept"
+        }
+      ]
+    },
+    "test_00727": {
+      "start_time": "2025-12-01 16:18:38.872841",
+      "end_time": "2025-12-01 16:18:47.118005",
+      "turns_taken": 5,
+      "buyer_hcv": false,
+      "seller_hcv": true,
+      "buyer_target_price": 210.0,
+      "seller_target_price": 300.0,
+      "final_price": 170.0,
+      "buyer_utility": 1.0,
+      "seller_utility": 0.0,
+      "fairness": 0.0,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the Used high end printer Dell 2130cn. What's the story with it?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "final: 170",
+          "price": 170.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'll take it.",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "<offer>",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm excited to finalize the deal. Buying now!",
+          "price": 170.0,
+          "intent": "accept"
+        }
+      ]
+    },
+    "test_00361": {
+      "start_time": "2025-12-01 16:22:40.368868",
+      "end_time": "2025-12-01 16:24:05.199642",
+      "turns_taken": 18,
+      "buyer_hcv": false,
+      "seller_hcv": false,
+      "buyer_target_price": 816.0,
+      "seller_target_price": 1633.0,
+      "final_price": 1480.0,
+      "buyer_utility": 0.0700280112044818,
+      "seller_utility": 0.41825095057034223,
+      "fairness": 0.37454100367197063,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the 1BR apartment. What can you tell me about it?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "it has a stainless steel refrigerator, redone kitchen, air conditioned, and it's near the farmer's market.",
+          "price": null,
+          "intent": "supplemental"
+        },
+        {
+          "role": "buyer",
+          "content": "Is apartment in good condition?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "yes and very spacious",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "Is apartment clean?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "its right by Beautiful 1BR Apartment at a Great Location! merrit",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "How about $816.0?",
+          "price": 816.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "seller",
+          "content": "hoe about 1630.0?",
+          "price": 1630.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I really love this apartment, but I'm on a tight budget \ud83e\udd17. How about we meet in the middle at $1060.0? It's the highest I can go \ud83d\ude0a.",
+          "price": 1060.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "how about 1630.0 for security deposit?",
+          "price": 1630.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "I can offer $1130.0, and I pay right now if we agree on this price.",
+          "price": 1130.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "1620.0",
+          "price": 1620.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm not convinced this apartment is worth that much, considering its age and the fact that pets aren't allowed. I can offer $1270.0, which is my highest bid.",
+          "price": 1270.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "how about 1620.0 for security deposit?",
+          "price": 1620.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm still interested, but I can only go up to $1480.0. I'm deciding between this and another one, so let's discuss this price.",
+          "price": 1480.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "i will agree to an offer of 1480.0",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "buyer",
+          "content": "Cool, let's move forward with that.",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "<accept>",
+          "price": 1480.0,
+          "intent": "accept"
+        }
+      ]
+    },
+    "test_00697": {
+      "start_time": "2025-12-01 16:25:37.752972",
+      "end_time": "2025-12-01 16:27:11.024798",
+      "turns_taken": 20,
+      "buyer_hcv": false,
+      "seller_hcv": false,
+      "buyer_target_price": 1330.0,
+      "seller_target_price": 1900.0,
+      "final_price": 1760.0,
+      "buyer_utility": 0.0,
+      "seller_utility": 0.46153846153846156,
+      "fairness": 0.49122807017543857,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the Livermore apartment. Can we discuss the details?",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "seller",
+          "content": "hi there are you interested in this Ideal location in Livermore! Will not last!?",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "buyer",
+          "content": "What is the condition of the apartment?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "yes, ample closet space and all!",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "How old is apartment?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "yes, it is.",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "How about $1330.0? I pay right now.",
+          "price": 1330.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "seller",
+          "content": "could you do 1900.0?",
+          "price": 1900.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'd love to make a deal, but $1900.0 is a bit steep for me \ud83d\ude0a. How about we meet in the middle at $1490.0? It's a great price for both of us!",
+          "price": 1490.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "that's because your offer was too low to begin with. 1900.0 do you have a counter offer?",
+          "price": 1900.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "I saw this apartment for $1475.0 elsewhere, so I'm willing to do $1510.0, which is a reasonable compromise.",
+          "price": 1510.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "i can make a deal for 1850.0",
+          "price": 1850.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm not convinced this apartment is worth that much, considering its age and condition. I can do $1590.0, but that's as high as I'm willing to go.",
+          "price": 1590.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "how about 1850.0 for security deposit?",
+          "price": 1850.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm deciding between this and another one, so I'll give you a final offer of $1680.0 - if that works for you, let's move forward.",
+          "price": 1680.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "well i can work with you on lowering the 1900.0, but 1736 si far too low.",
+          "price": null,
+          "intent": "disagree"
+        },
+        {
+          "role": "buyer",
+          "content": "I can do $1760.0, is that acceptable to you?",
+          "price": 1760.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "we can make 1760.0 work",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "buyer",
+          "content": "Cool, let's move forward with that.",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "<accept>",
+          "price": 1760.0,
+          "intent": "accept"
+        }
+      ]
+    },
+    "test_00238": {
+      "start_time": "2025-12-01 16:20:15.809478",
+      "end_time": "2025-12-01 16:21:29.871577",
+      "turns_taken": 17,
+      "buyer_hcv": false,
+      "seller_hcv": false,
+      "buyer_target_price": 115.0,
+      "seller_target_price": 165.0,
+      "final_price": 154.0,
+      "buyer_utility": 0.1702127659574468,
+      "seller_utility": 0.65625,
+      "fairness": 0.43999999999999995,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the Swann 4 Camera Home Security System. What can you tell me about it?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "we've barely used it, we",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "how you ship it",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "it's new in the box.",
+          "price": null,
+          "intent": "supplemental"
+        },
+        {
+          "role": "buyer",
+          "content": "how you ship?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "it it capable of Swann 4 Camera Home Security System speeds",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "I saw this for $115.0 elsewhere, how about we do it for that price?",
+          "price": 115.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "seller",
+          "content": "that is too low, can you go up to 165.0 at least?",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "buyer",
+          "content": "I can do $126.0, that's my best offer.",
+          "price": 126.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "i can do 165.0 last",
+          "price": 165.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I can do $136.0, I pay right now if we agree on this price.",
+          "price": 136.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "how about you pick it up now, pay with cash for 154.0?",
+          "price": 154.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I can do $138.0, and I'm deciding between this and another one, so let's agree on this price now.",
+          "price": 138.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "i can do 154.0 last",
+          "price": 154.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "I'll take it.",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "<offer>",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "buyer",
+          "content": "Deal! I'm excited to finalize the purchase of the Swann 4 Camera Home Security System for $154.0 as we previously agreed.",
+          "price": 154.0,
+          "intent": "accept"
+        }
+      ]
+    },
+    "test_00777": {
+      "start_time": "2025-12-01 16:13:57.489276",
+      "end_time": "2025-12-01 16:15:21.305509",
+      "turns_taken": 17,
+      "buyer_hcv": false,
+      "seller_hcv": false,
+      "buyer_target_price": 62.0,
+      "seller_target_price": 125.0,
+      "final_price": 108.0,
+      "buyer_utility": 0.20689655172413793,
+      "seller_utility": 0.6692607003891051,
+      "fairness": 0.5396825396825398,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the futon. What's the story behind it?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "excellent",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "Is it still in good condition and do you ship it?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "ment condition",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "Do you ship it?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "i do",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "How about $62.0? I think it's a fair price considering the futon's age and used condition.",
+          "price": 62.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "seller",
+          "content": "can we meet at 125.0 and i will deliver?",
+          "price": 125.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm really interested in the futon, but $125.0 is a bit out of my budget \ud83d\ude0a. How about we meet at $84.6? I think it's a fair price, and I'd really appreciate it if you could deliver it to me.",
+          "price": 84.6,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "i could do 121.0 for it.",
+          "price": 121.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm still interested, but I can do $94.4. I'm deciding between this futon and another one, so let me know if you're willing to sell at this price.",
+          "price": 94.4,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "94.4 is too low. i can do 110.0",
+          "price": 110.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I saw this futon for $99.6 elsewhere, so I can do $99.6. It's a fair price considering others are selling it cheaper.",
+          "price": 99.6,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "how about 108.0?",
+          "price": 108.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "OK.",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "<offer>",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "buyer",
+          "content": "Deal! I'm excited to finalize the purchase of the futon at $108.0.",
+          "price": 108.0,
+          "intent": "accept"
+        }
+      ]
+    },
+    "test_00749": {
+      "start_time": "2025-12-01 16:15:21.330254",
+      "end_time": "2025-12-01 16:16:43.635134",
+      "turns_taken": 16,
+      "buyer_hcv": false,
+      "seller_hcv": false,
+      "buyer_target_price": 300.0,
+      "seller_target_price": 600.0,
+      "final_price": 478.0,
+      "buyer_utility": 0.23605150214592274,
+      "seller_utility": 0.5821917808219178,
+      "fairness": 0.8133333333333334,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the Rosewood Dining Table set. Can we talk about it?",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "seller",
+          "content": "hello!",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "buyer",
+          "content": "Is table in good condition?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "yes it's in great condition",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "How about $300.0? I saw this for less elsewhere, so I'm hoping we can discuss a better price.",
+          "price": 300.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "seller",
+          "content": "make it an even 600.0 and it is yours.",
+          "price": 600.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I understand you want $600, but considering the age and condition of the Rosewood Dining Table set, I think it's overpriced. I can offer $377.0, which is more reasonable.",
+          "price": 377.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "sorry, finger slipped. meant 564.0",
+          "price": 564.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I can do $419.0, that's my best offer.",
+          "price": 419.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "i really can't do less than 564.0",
+          "price": 564.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm still interested in the Rosewood Dining Table set, but I think $564.0 is a bit too expensive. Can you lower it? I'm deciding between this and another one, so if we can't come to an agreement, I might have to go with the other option.",
+          "price": null,
+          "intent": "vague-price"
+        },
+        {
+          "role": "seller",
+          "content": "i sure can, but you'll need to pick it up. how does 492.0 sound?",
+          "price": 492.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I can do $478.0, and I pay right now if we agree on this price.",
+          "price": 478.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "deal",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "buyer",
+          "content": "Cool, deal!",
+          "price": null,
+          "intent": "thanks"
+        },
+        {
+          "role": "seller",
+          "content": "<accept>",
+          "price": 478.0,
+          "intent": "accept"
+        }
+      ]
+    },
+    "test_00024": {
+      "start_time": "2025-12-01 16:30:05.203297",
+      "end_time": "2025-12-01 16:31:21.813990",
+      "turns_taken": 15,
+      "buyer_hcv": false,
+      "seller_hcv": false,
+      "buyer_target_price": 380.0,
+      "seller_target_price": 500.0,
+      "final_price": 485.0,
+      "buyer_utility": 0.045454545454545456,
+      "seller_utility": 0.7580645161290323,
+      "fairness": 0.25,
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi, I'm interested in the Moroccan Berber Azilal Vintage Rug. What can you tell me about it?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "they do have some scratches and usual wear and tear and the cushion is a bit faded.",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm a student on a tight budget, so I'm looking for something that fits within my means - can we discuss the price of the Moroccan Berber Azilal Vintage Rug considering its condition?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "sure thing. you've got a deal.",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "buyer",
+          "content": "How about $380.0, considering its worn condition and faded cushion?",
+          "price": 380.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "seller",
+          "content": "500.0 and its a deal",
+          "price": 500.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "How about $410.0?",
+          "price": 410.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "how about 500.0?",
+          "price": 500.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm willing to pay $454.0 for the Moroccan Berber Azilal Vintage Rug, considering its condition. If we can't agree on this price, I'm deciding between this and another one, so let's come to a decision now.",
+          "price": 454.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "485.0, you come and pick it up. then that's a deal",
+          "price": 485.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I really love this rug, but I'm on a super tight budget \ud83d\ude4f. How about we meet in the middle at $473.0? It's the highest I can go, and I promise to come pick it up right away \ud83d\ude0a.",
+          "price": 473.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "485.0 plus the rug and i'll deliver",
+          "price": 485.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "OK, I'll take it.",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "<offer>",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "buyer",
+          "content": "I'm thrilled to finalize the deal! Buying now!",
+          "price": 485.0,
+          "intent": "accept"
+        }
+      ]
+    }
+  },
+  "failed_negotiations": {
+    "test_00727": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "length",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T15:51:26.885983"
+    },
+    "test_00238": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "length",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T15:51:26.886109"
+    },
+    "test_00361": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "fair",
+        "seller_strategy": "length",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T16:05:13.245090"
+    },
+    "test_00697": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "length",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T15:51:26.886344"
+    },
+    "test_00265": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "fair",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T16:31:21.843995"
+    },
+    "test_00287": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "fair",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T16:31:21.844002"
+    },
+    "test_00518": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "fair",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T16:31:21.844006"
+    },
+    "test_00777": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "fair",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T16:31:21.844010"
+    },
+    "test_00749": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "fair",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T16:31:21.844015"
+    },
+    "test_00024": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "length",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T15:51:26.886370"
+    },
+    "test_00385": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "fair",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T16:31:21.844118"
+    },
+    "test_00726": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "fair",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T16:31:21.844124"
+    },
+    "test_00449": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "fair",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T16:31:21.844128"
+    },
+    "test_00447": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "fair",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T16:31:21.844132"
+    },
+    "test_00613": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "fair",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T16:31:21.844135"
+    },
+    "test_00756": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "fair",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T16:31:21.844139"
+    },
+    "test_00577": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "fair",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "damf"
+      },
+      "timestamp": "2025-12-01T14:22:17.233892"
+    },
+    "test_00760": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "fair",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T16:31:21.843879"
+    },
+    "test_00655": {
+      "error": "No agreement reached",
+      "context": {
+        "buyer_model": "llama3.3:70b",
+        "seller_model": "llama3.3:70b",
+        "buyer_strategy": "fair",
+        "seller_strategy": "utility",
+        "buyer_agent": "damf",
+        "seller_agent": "search"
+      },
+      "timestamp": "2025-12-01T16:31:21.843550"
+    }
+  },
+  "model_pair_metrics": {
+    "llama3.3:70b:length:damf_llama3.3:70b:length:damf": {
+      "buyer_model": "llama3.3:70b:length:damf",
+      "seller_model": "llama3.3:70b:length:damf",
+      "num_negotiations": 4,
+      "seller_hcv": 0,
+      "buyer_hcv": 3,
+      "deal_rate": 0.2,
+      "seller_hcv_rate": 0.0,
+      "buyer_hcv_rate": 0.15,
+      "avg_turns": 11.0,
+      "avg_buyer_utility": 0.20114942528735627,
+      "avg_seller_utility": 0.8764880952380952,
+      "avg_duration": 58.332751,
+      "avg_fairness": 0.08500000000000013
+    },
+    "llama3.3:70b:length:damf_llama3.3:70b:fair:damf": {
+      "buyer_model": "llama3.3:70b:length:damf",
+      "seller_model": "llama3.3:70b:fair:damf",
+      "num_negotiations": 6,
+      "seller_hcv": 0,
+      "buyer_hcv": 1,
+      "deal_rate": 0.3,
+      "seller_hcv_rate": 0.0,
+      "buyer_hcv_rate": 0.05,
+      "avg_turns": 13.166666666666668,
+      "avg_buyer_utility": 0.4442556583388133,
+      "avg_seller_utility": 0.5977260110298344,
+      "avg_duration": 78.50566766666667,
+      "avg_fairness": 0.4702511446575096
+    },
+    "llama3.3:70b:length:damf_llama3.3:70b:utility:damf": {
+      "buyer_model": "llama3.3:70b:length:damf",
+      "seller_model": "llama3.3:70b:utility:damf",
+      "num_negotiations": 4,
+      "seller_hcv": 0,
+      "buyer_hcv": 3,
+      "deal_rate": 0.2,
+      "seller_hcv_rate": 0.0,
+      "buyer_hcv_rate": 0.15,
+      "avg_turns": 13.0,
+      "avg_buyer_utility": 0.21052631578947367,
+      "avg_seller_utility": 0.8594054580896686,
+      "avg_duration": 77.19617275,
+      "avg_fairness": 0.23484848484848486
+    },
+    "llama3.3:70b:fair:damf_llama3.3:70b:length:damf": {
+      "buyer_model": "llama3.3:70b:fair:damf",
+      "seller_model": "llama3.3:70b:length:damf",
+      "num_negotiations": 5,
+      "seller_hcv": 1,
+      "buyer_hcv": 2,
+      "deal_rate": 0.25,
+      "seller_hcv_rate": 0.05,
+      "buyer_hcv_rate": 0.1,
+      "avg_turns": 14.6,
+      "avg_buyer_utility": 0.14794736250140592,
+      "avg_seller_utility": 0.5966916342088618,
+      "avg_duration": 94.525698,
+      "avg_fairness": 0.44857687991021317
+    },
+    "llama3.3:70b:fair:damf_llama3.3:70b:fair:damf": {
+      "buyer_model": "llama3.3:70b:fair:damf",
+      "seller_model": "llama3.3:70b:fair:damf",
+      "num_negotiations": 9,
+      "seller_hcv": 0,
+      "buyer_hcv": 0,
+      "deal_rate": 0.45,
+      "seller_hcv_rate": 0.0,
+      "buyer_hcv_rate": 0.0,
+      "avg_turns": 13.222222222222221,
+      "avg_buyer_utility": 0.5481159382355821,
+      "avg_seller_utility": 0.6546836796521983,
+      "avg_duration": 74.28879611111111,
+      "avg_fairness": 0.5900331794171043
+    },
+    "llama3.3:70b:fair:damf_llama3.3:70b:utility:damf": {
+      "buyer_model": "llama3.3:70b:fair:damf",
+      "seller_model": "llama3.3:70b:utility:damf",
+      "num_negotiations": 5,
+      "seller_hcv": 1,
+      "buyer_hcv": 1,
+      "deal_rate": 0.25,
+      "seller_hcv_rate": 0.05,
+      "buyer_hcv_rate": 0.05,
+      "avg_turns": 16.8,
+      "avg_buyer_utility": 0.26451844289641546,
+      "avg_seller_utility": 0.5258625573011431,
+      "avg_duration": 109.2346944,
+      "avg_fairness": 0.4914013575164126
+    },
+    "llama3.3:70b:utility:damf_llama3.3:70b:length:damf": {
+      "buyer_model": "llama3.3:70b:utility:damf",
+      "seller_model": "llama3.3:70b:length:damf",
+      "num_negotiations": 6,
+      "seller_hcv": 2,
+      "buyer_hcv": 1,
+      "deal_rate": 0.3,
+      "seller_hcv_rate": 0.1,
+      "buyer_hcv_rate": 0.05,
+      "avg_turns": 11.666666666666666,
+      "avg_buyer_utility": 0.37157097288676244,
+      "avg_seller_utility": 0.43879870129870113,
+      "avg_duration": 86.31416949999999,
+      "avg_fairness": 0.6080303030303031
+    },
+    "llama3.3:70b:utility:damf_llama3.3:70b:fair:damf": {
+      "buyer_model": "llama3.3:70b:utility:damf",
+      "seller_model": "llama3.3:70b:fair:damf",
+      "num_negotiations": 8,
+      "seller_hcv": 1,
+      "buyer_hcv": 1,
+      "deal_rate": 0.4,
+      "seller_hcv_rate": 0.05,
+      "buyer_hcv_rate": 0.05,
+      "avg_turns": 9.875,
+      "avg_buyer_utility": 0.6927442123094297,
+      "avg_seller_utility": 0.5251058809447019,
+      "avg_duration": 59.263405875,
+      "avg_fairness": 0.3897208931419458
+    },
+    "llama3.3:70b:utility:damf_llama3.3:70b:utility:damf": {
+      "buyer_model": "llama3.3:70b:utility:damf",
+      "seller_model": "llama3.3:70b:utility:damf",
+      "num_negotiations": 6,
+      "seller_hcv": 1,
+      "buyer_hcv": 3,
+      "deal_rate": 0.3,
+      "seller_hcv_rate": 0.05,
+      "buyer_hcv_rate": 0.15,
+      "avg_turns": 10.5,
+      "avg_buyer_utility": 0.2076432022084196,
+      "avg_seller_utility": 0.6911662613435683,
+      "avg_duration": 66.88126233333334,
+      "avg_fairness": 0.2046296296296296
+    },
+    "llama3.3:70b:length:damf_llama3.3:70b:length:search": {
+      "buyer_model": "llama3.3:70b:length:damf",
+      "seller_model": "llama3.3:70b:length:search",
+      "num_negotiations": 4,
+      "seller_hcv": 0,
+      "buyer_hcv": 1,
+      "deal_rate": 0.2,
+      "seller_hcv_rate": 0.0,
+      "buyer_hcv_rate": 0.05,
+      "avg_turns": 11.75,
+      "avg_buyer_utility": 0.41185383244206764,
+      "avg_seller_utility": 0.649651506794364,
+      "avg_duration": 42.15204825,
+      "avg_fairness": 0.42462121212121207
+    },
+    "llama3.3:70b:length:damf_llama3.3:70b:fair:search": {
+      "buyer_model": "llama3.3:70b:length:damf",
+      "seller_model": "llama3.3:70b:fair:search",
+      "num_negotiations": 8,
+      "seller_hcv": 0,
+      "buyer_hcv": 1,
+      "deal_rate": 0.4,
+      "seller_hcv_rate": 0.0,
+      "buyer_hcv_rate": 0.05,
+      "avg_turns": 12.0,
+      "avg_buyer_utility": 0.669354103078861,
+      "avg_seller_utility": 0.6600970791503153,
+      "avg_duration": 40.78779525,
+      "avg_fairness": 0.35078216374269
+    },
+    "llama3.3:70b:length:damf_llama3.3:70b:utility:search": {
+      "buyer_model": "llama3.3:70b:length:damf",
+      "seller_model": "llama3.3:70b:utility:search",
+      "num_negotiations": 4,
+      "seller_hcv": 0,
+      "buyer_hcv": 1,
+      "deal_rate": 0.2,
+      "seller_hcv_rate": 0.0,
+      "buyer_hcv_rate": 0.05,
+      "avg_turns": 12.25,
+      "avg_buyer_utility": 0.4114774114774114,
+      "avg_seller_utility": 0.6538594578115473,
+      "avg_duration": 40.394406000000004,
+      "avg_fairness": 0.25507575757575773
+    },
+    "llama3.3:70b:fair:damf_llama3.3:70b:length:search": {
+      "buyer_model": "llama3.3:70b:fair:damf",
+      "seller_model": "llama3.3:70b:length:search",
+      "num_negotiations": 7,
+      "seller_hcv": 0,
+      "buyer_hcv": 0,
+      "deal_rate": 0.35,
+      "seller_hcv_rate": 0.0,
+      "buyer_hcv_rate": 0.0,
+      "avg_turns": 14.285714285714286,
+      "avg_buyer_utility": 0.37731359377158524,
+      "avg_seller_utility": 0.614201608828021,
+      "avg_duration": 67.43311485714287,
+      "avg_fairness": 0.679037745879851
+    },
+    "llama3.3:70b:fair:damf_llama3.3:70b:fair:search": {
+      "buyer_model": "llama3.3:70b:fair:damf",
+      "seller_model": "llama3.3:70b:fair:search",
+      "num_negotiations": 11,
+      "seller_hcv": 0,
+      "buyer_hcv": 0,
+      "deal_rate": 0.55,
+      "seller_hcv_rate": 0.0,
+      "buyer_hcv_rate": 0.0,
+      "avg_turns": 15.727272727272725,
+      "avg_buyer_utility": 0.3847238986792402,
+      "avg_seller_utility": 0.6206908120876456,
+      "avg_duration": 69.38571309090909,
+      "avg_fairness": 0.7558219992432373
+    },
+    "llama3.3:70b:fair:damf_llama3.3:70b:utility:search": {
+      "buyer_model": "llama3.3:70b:fair:damf",
+      "seller_model": "llama3.3:70b:utility:search",
+      "num_negotiations": 7,
+      "seller_hcv": 1,
+      "buyer_hcv": 2,
+      "deal_rate": 0.35,
+      "seller_hcv_rate": 0.05,
+      "buyer_hcv_rate": 0.1,
+      "avg_turns": 15.0,
+      "avg_buyer_utility": 0.18367076037378202,
+      "avg_seller_utility": 0.6035912015709224,
+      "avg_duration": 64.22896228571429,
+      "avg_fairness": 0.24606224864486795
+    }
+  }
+}
