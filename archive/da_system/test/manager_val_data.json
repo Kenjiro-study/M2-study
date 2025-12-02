@@ -1,0 +1,402 @@
+[
+    {
+        "dialogue_history": [{"role":"buyer", "content":"hi , i am interested in your board !", "intent":"intro"}],
+        "partner_utterance": "hi , do you have any questions ?",
+        "partner_intent": "intro",
+        "partner_role": "seller",
+        "agent_role": "buyer",
+        "next_intent": "inquire"
+    },
+    {
+        "dialogue_history": [{"role":"seller", "content":"hello", "intent":"intro"},{"role":"buyer", "content":"hi i am interested in your soundlink.", "intent":"intro"}],
+        "partner_utterance": "great ! i have it listed for $220 but am willing to negotiate .",
+        "partner_intent": "init-price",
+        "partner_role": "seller",
+        "agent_role": "buyer",
+        "next_intent": "inquire"
+    },
+    {
+        "dialogue_history": [],
+        "partner_utterance": "hello , how are you today",
+        "partner_intent": "intro",
+        "partner_role": "seller",
+        "agent_role": "buyer",
+        "next_intent": "intro"
+    },
+    {
+        "dialogue_history": [],
+        "partner_utterance": "this is an awesome bike",
+        "partner_intent": "supplemental",
+        "partner_role": "seller",
+        "agent_role": "buyer",
+        "next_intent": "intro"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"i'm interested in this item , but i had some questions", "intent":"intro"},{"role":"seller", "content":"geat , ask away.", "intent":"intro"},{"role":"buyer", "content":"do i have to remove it myself?", "intent":"inquire"}, {"role":"seller", "content":"i am renting out the appartment , you \"don't remove anything\"", "intent":"inform"}],
+        "partner_utterance": "nice . is it fully furnished ? ",
+        "partner_intent": "inquire",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "inform"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"does this car have automatic windshield wipers like every car ever invented ?", "intent":"inquire"},{"role":"seller", "content":"i would assume so. it's a 2013 mercedes.", "intent":"inform"}],
+        "partner_utterance": "you assume so ? isn't it yours ? is the title in your name ?",
+        "partner_intent": "inquire",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "inform"
+    },
+    {
+        "dialogue_history": [{"role":"seller", "content":"hi there , are you interested?", "intent":"intro"}],
+        "partner_utterance": "hello . i am interested . i'm willing to pay $22 .",
+        "partner_intent": "init-price",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "counter-price"
+    },
+    {
+        "dialogue_history": [{"role":"seller", "content":"hello there , interested?", "intent":"intro"},{"role":"buyer", "content":"i used to have one just like it back in high school , would you take $1800?", "intent":"init-price"}],
+        "partner_utterance": "i am sorry that is far too low . ",
+        "partner_intent": "vague-price",
+        "partner_role": "seller",
+        "agent_role": "buyer",
+        "next_intent": "counter-price"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"hello . this looks like a good display . what can it do ?", "intent":"inquire"},{"role":"seller", "content":"it can hold books", "intent":"inform"},{"role":"buyer", "content":"is it large enough and spacious?", "intent":"inquire"}],
+        "partner_utterance": "it's shiny and has led lights , if that's a plus ",
+        "partner_intent": "inform",
+        "partner_role": "seller",
+        "agent_role": "buyer",
+        "next_intent": "init-price"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"hello , i am interested in the bike you have for sale . are the wheels in good shape ? ", "intent":"inquire"},{"role":"seller", "content":"yes , they are in great shape . like i said it is just the handel and the padded seat that we have fixed with tape . ", "intent":"inform"},{"role":"buyer", "content":"i am interested and would like to pick it up today . i think $10 is kind of high would you be willing to take $5 ?", "intent":"init-price"}],
+        "partner_utterance": "i can't take $5 , i need more than that . i would be willing to go down to $9 .",
+        "partner_intent": "counter-price",
+        "partner_role": "seller",
+        "agent_role": "buyer",
+        "next_intent": "counter-price"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"i'll give you 50 bucks for it .", "intent":"init-price"},{"role":"seller", "content":"hmm i can't quite go that low , its in really good condition . i have one guy who offered me $60 already but he wont come and pick it up from my place , and i don't feel like delivering . would you be willing to offer $60 and come to my place to pick up the phone ? i'll gladly accept that .", "intent":"counter-price"}],
+        "partner_utterance": "eh , works for me .",
+        "partner_intent": "agree",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "thanks"
+    },
+    {
+        "dialogue_history": [{"role":"seller", "content":"hi there ! are you interested in the vintage radio ? ", "intent":"intro"},{"role":"buyer", "content":"that is an awesome radio ! would you be willing to test it to see if it works ? ", "intent":"inquire"},{"role":"seller", "content":"i could do that , sure . give me a minute . ", "intent":"inform"}],
+        "partner_utterance": "no problem . i appreciate you taking the time to do that . ",
+        "partner_intent": "thanks",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "supplemental"
+    },
+    {
+        "dialogue_history": [{"role":"seller", "content":"hello are you interested in this vehicle ", "intent":"intro"}],
+        "partner_utterance": "howdy partner . nice wheels you got . ",
+        "partner_intent": "intro",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "intro"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"hi is the radio still for sale ? ", "intent":"inquire"},{"role":"seller", "content":"it is ! it looks to be in excellent condition for its age ", "intent":"inform"},{"role":"buyer", "content":"yeah the pictures looks great . so you said the radio isn't tested , do you know when it worked last ? ", "intent":"inquire"},{"role":"seller", "content":"it was my aunt's she used it daily until she put it in storage 7 years ago .", "intent":"inform"},{"role":"buyer", "content":"ok no worries , i'm mostly isnterested in it as an antique for my collection . ", "intent":"intro"},{"role":"seller", "content":"okay that is perfect ! do you have any other questions ? when could you pick up ? ", "intent":"inquire"}],
+        "partner_utterance": "no more questions and i can offer you $135 and pick it up from wherever you are today .",
+        "partner_intent": "init-price",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "agree"
+    },
+    {
+        "dialogue_history": [{"role":"seller", "content":"hi ", "intent":"intro"}],
+        "partner_utterance": "hello ! i just saw your ad for the bike w/ the helmet knee pads , and training wheels . ",
+        "partner_intent": "intro",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "supplemental"
+    },
+    {
+        "dialogue_history": [{"role":"seller", "content":"hi , are you interested in buying this bmx bike ? this bike looks great ", "intent":"intro"}],
+        "partner_utterance": "awesome , are you comfortable paying $20 for it ?",
+        "partner_intent": "init-price",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "vague-price"
+    },
+    {
+        "dialogue_history": [{"role":"seller", "content":"this bike is a totally sweet looking orange color , and is in great condition because it was stored indoors . you interested ? i'm asking $20", "intent":"init-price"},{"role":"buyer", "content":"i am interested . my son needs a new bike . is this one in great condition ? the tires are good and everything ? ", "intent":"inquire"},{"role":"seller", "content":"the bike is in good condition , i'm in antioch if you are interested in taking a look at it ", "intent":"inform"}],
+        "partner_utterance": "yes i would like to take a look at it . can you knock off a few bucks for the drive ? ",
+        "partner_intent": "vague-price",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "counter-price"
+    },
+    {
+        "dialogue_history": [{"role":"seller", "content":"hello . ", "intent":"intro"},{"role":"buyer", "content":"hi . would you do 10$ on the bike and i'll come pick it up right now . my child has been dying for a bike and money is a little tight . i can do 10 if that's okay with you .", "intent":"init-price"},{"role":"seller", "content":"i'm sorry , i'm not moving from $20 . it's already too cheap as is .", "intent":"counter-price"}],
+        "partner_utterance": "15 is the most i can do , please . i'll come get it !",
+        "partner_intent": "counter-price",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "counter-price"
+    },
+    {
+        "dialogue_history": [],
+        "partner_utterance": "",
+        "partner_intent": "",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "intro"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"hello , i'm interested in your bike . what condition is it in ? ", "intent":"inquire"},{"role":"seller", "content":"it is in good shape ! i am positive your kid will like it ! ", "intent":"inform"},{"role":"buyer", "content":"how does $15 sound ?", "intent":"init-price"}],
+        "partner_utterance": "done!",
+        "partner_intent": "agree",
+        "partner_role": "seller",
+        "agent_role": "buyer",
+        "next_intent": "thanks"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"wow , this looks like a great bike ! ", "intent":"intro"}],
+        "partner_utterance": "it sure is ! excellent for kids and it's in excellent condition ",
+        "partner_intent": "supplemental",
+        "partner_role": "seller",
+        "agent_role": "buyer",
+        "next_intent": "inquire"
+    },
+    {
+        "dialogue_history": [{"role":"seller", "content":"hey , are you interested in the media cables ? ", "intent":"intro"},{"role":"buyer", "content":"i am interested in them . ", "intent":"intro"},{"role":"seller", "content":"great , i have them available for $20 .", "intent":"init-price"},{"role":"buyer", "content":"would you be willing to throw in free shipping ? ", "intent":"inquire"},{"role":"seller", "content":"yes , as long as it's not international . ", "intent":"inform"}],
+        "partner_utterance": "i'm in the lower 48 .",
+        "partner_intent": "supplemental",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "counter-price"
+    },
+    {
+        "dialogue_history": [{"role":"seller", "content":"hi how are you ? ", "intent":"intro"},{"role":"buyer", "content":"i really like your toyota truck ! ", "intent":"intro"},{"role":"seller", "content":"tahnks it is in very good condition i have taken very well care of her i am asking for $6400 .", "intent":"init-price"},{"role":"buyer", "content":"how many miles does it have on it ? ", "intent":"inquire"},{"role":"seller", "content":"only 56000", "intent":"inform"},{"role":"buyer", "content":"would you consider going a little lower for a 2003 , say $3200 ?", "intent":"counter-price"}],
+        "partner_utterance": "no that is half of my asking price it is from 2003 but as i said it is in very good condition and only has 56000 miles on it .",
+        "partner_intent": "disagree",
+        "partner_role": "seller",
+        "agent_role": "buyer",
+        "next_intent": "disagree"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"hi , this is a great truck . would you take 3 , 500", "intent":"init-price"},{"role":"seller", "content":"$3 , 500 is too low . do you have a vehicle to trade with it ? if so , tell me about that vehicle . i might be able to take $4250 if you have a trade in .", "intent":"counter-price"},{"role":"buyer", "content":"hs this truck ever been in an accident ? ", "intent":"inquire"},{"role":"seller", "content":"no , it has never been in an accident . ", "intent":"inform"},{"role":"seller", "content":"are you interested in buying it for $5000 ? or do you have a trade in ?", "intent":"counter-price"}],
+        "partner_utterance": "no , to high , the truck does not have any additions , it is a plain fleet work truck and most likely doesn't even have power windows . ",
+        "partner_intent": "disagree",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "inquire"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"hi there ", "intent":"intro"},{"role":"seller", "content":"just looking to sell these real quick , pickup only . ", "intent":"supplemental"}],
+        "partner_utterance": "is it $7 if i pick it up ?",
+        "partner_intent": "init-price",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "counter-price"
+    },
+    {
+        "dialogue_history": [{"role":"seller", "content":"hi are you interested in my iphone ? ", "intent":"intro"},{"role":"buyer", "content":"yes , mine was stolen so i need a new one , what kind of shape is it in ? ", "intent":"inquire"},{"role":"seller", "content":"it is brand new ! ", "intent":"inform"},{"role":"buyer", "content":"ok , well i have $450 in cash to spend does that sound good ? i can come to you to pick it up and save you gass", "intent":"init-price"},{"role":"seller", "content":"$465 and you have a deal", "intent":"counter-price"}],
+        "partner_utterance": "i really only have $450 and i would be saving your the gas and time . . that's worth $15 yeh ?",
+        "partner_intent": "insist",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "insist"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"i am interested in your device and would like to offer $40 cash for it .", "intent":"init-price"},{"role":"seller", "content":"i don't think i could go that low . ", "intent":"vague-price"},{"role":"seller", "content":"its unopened and retails at $70 , so i think $65 is a fair offer .", "intent":"counter-price"},{"role":"seller", "content":"i got it as a gift but already have one , trust me they're great and work super well . 6+ hours of battery life extra if you're using a tablet , 9 hours with a small tablet , and 24 hours extra with a smartphone . well worth $65 imo .", "intent":"supplemental"}],
+        "partner_utterance": "i could offer $45",
+        "partner_intent": "counter-price",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "insist"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"hello . i was hoping to buy your battery for $32", "intent":"init-price"},{"role":"seller", "content":"i cannot sell for that price , because i paid $125 for the battery originally .", "intent":"disagree"},{"role":"buyer", "content":"well , it is unopened . how about $50 if i come to you ?", "intent":"counter-price"}],
+        "partner_utterance": "we have a deal since this part of my asking price included the shipping cost . ",
+        "partner_intent": "agree",
+        "partner_role": "seller",
+        "agent_role": "buyer",
+        "next_intent": "thanks"
+    },
+    {
+        "dialogue_history": [{"role":"seller", "content":"hello there ", "intent":"intro"}],
+        "partner_utterance": "hi . just saw your ad and i'm very interested in your sofa set ! ",
+        "partner_intent": "intro",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "inquire"
+    },
+    {
+        "dialogue_history": [{"role":"seller", "content":"this car has been great to me and i think you'd love it ", "intent":"supplemental"}],
+        "partner_utterance": "well , what are the problems with the car ? ",
+        "partner_intent": "inquire",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "inform"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"that is a nice sofa ", "intent":"supplemental"},{"role":"seller", "content":"it's really great ! i wish i didn't have to get rid of it but i'm moving away soon . ", "intent":"supplemental"},{"role":"seller", "content":"i bought the set for $800 last year and for$399 i think it's a steal .", "intent":"init-price"}],
+        "partner_utterance": "indeed but it is still used and i will have to to get it in my house myseld . 350 dollars ?",
+        "partner_intent": "counter-price",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "agree"
+    },
+    {
+        "dialogue_history": [{"role":"seller", "content":"hello ", "intent":"intro"},{"role":"buyer", "content":"hello do you still have the hyundai for sale ? ", "intent":"inquire"},{"role":"seller", "content":"yes i do , it's absolutely still for sale ", "intent":"inform"},{"role":"buyer", "content":"what condition is it in ? has it been in any accidents ? ", "intent":"inquire"}],
+        "partner_utterance": "it's never been in an accident and it's free of any dents or dings . . . looks great in person ",
+        "partner_intent": "inform",
+        "partner_role": "seller",
+        "agent_role": "buyer",
+        "next_intent": "inquire"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"hey ! do you still have the couch available ?", "intent":"inquire"},{"role":"seller", "content":"hello , yes i do . ", "intent":"inform"},{"role":"buyer", "content":"it appears to be in pretty good condition from the photos but i'm not sure that i could come pick it up . i may have to rent a truck . would $250 sound good to you ? i can provide cash .", "intent":"init-price"}],
+        "partner_utterance": "it is in very good condition and is very comfortable . i do not think i can go that low . ",
+        "partner_intent": "vague-price",
+        "partner_role": "seller",
+        "agent_role": "buyer",
+        "next_intent": "counter-price"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"hi there , i was looking at your ad for the couch you listed , about how old is it ? ", "intent":"inquire"},{"role":"seller", "content":"it is about 3 years old , but is in excellent condition . it has no stains or rips .", "intent":"inform"}],
+        "partner_utterance": "i was thinking about buying it for my nana , you know how old couches get a little soft and hard to get out of . are you sure you couldn't deliver ? it would be a little difficult for me to pay so much and still have to pick it up , i mean , it's a 3 year old couch .",
+        "partner_intent": "inquire",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "init-price"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"good morning", "intent":"intro"}],
+        "partner_utterance": "how can i help you ?",
+        "partner_intent": "intro",
+        "partner_role": "seller",
+        "agent_role": "buyer",
+        "next_intent": "inquire"
+    },
+    {
+        "dialogue_history": [{"role":"seller", "content":"hello are you interested in this car ? ", "intent":"intro"},{"role":"buyer", "content":"hello , i'm interested . ", "intent":"intro"},{"role":"seller", "content":"ok well its a 08 honda accord 3 . 5 liter , great shape , runs good . one owner .", "intent":"supplemental"}],
+        "partner_utterance": "are there any problems with the car ? ",
+        "partner_intent": "inquire",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "inform"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"how we doing today ", "intent":"intro"},{"role":"seller", "content":"i am wonderful . how are you ? ", "intent":"intro"}],
+        "partner_utterance": "i m good thanks , so lets get down to it ",
+        "partner_intent": "intro",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "init-price"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"hello . i really liked this toyota highlander . have been looking for it for a long time now , and this is something that caught my attention ", "intent":"intro"},{"role":"seller", "content":"yeah , it's a wonderful vehicle , very spacious and extremely reliable . ", "intent":"supplemental"},{"role":"seller", "content":"as you can see it's recently gotten a brand new engine and that's why i'm asking 5100 .", "intent":"init-price"}],
+        "partner_utterance": "yeah but its very expensive for me . i am a student and can't afford this much . would you be willing to sell it for me at about $3060 ?",
+        "partner_intent": "counter-price",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "vague-price"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"hello , i'm interested in your bike you have for sale ", "intent":"intro"},{"role":"seller", "content":"yes sure ! ", "intent":"intro"},{"role":"buyer", "content":"is the paint intact ? does it need ant tlc ? ", "intent":"inquire"}],
+        "partner_utterance": "the parts are all intact and no , it doesn't need tlc ",
+        "partner_intent": "inform",
+        "partner_role": "seller",
+        "agent_role": "buyer",
+        "next_intent": "init-price"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"hey there , i'm interested in your nice table ", "intent":"intro"},{"role":"seller", "content":"yeah . it's gotta go , man . make an offer . 125 is a good price for it", "intent":"init-price"}],
+        "partner_utterance": "can we do 100 ? doesn",
+        "partner_intent": "counter-price",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "agree"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"hey , what's the loveseat/sofa like ? looks good ", "intent":"inquire"},{"role":"seller", "content":"excellent condition , but need em out of here . remind me of my ex and too big for my townhouse . ", "intent":"inform"},{"role":"seller", "content":"what's your best offer ? ", "intent":"inquire"}],
+        "partner_utterance": "oh , like 400 , i can't see the looks , but i want to help you get rid of them .",
+        "partner_intent": "init-price",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "counter-price"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"hello ! how long have you had this bike ? ", "intent":"inquire"},{"role":"seller", "content":"i had it a while . i'm only selling it because i need the cash otherwise i would keep it forever and will it to my son , you know ? ", "intent":"inform"},{"role":"buyer", "content":"i can definitely understand that ! i have seen a few similar bikes listed around $550 would you be willing to take $575 ?", "intent":"init-price"}],
+        "partner_utterance": "that's almost 100 bucks off the list . i can't go that low . i could do 600 if you come and pick it up .",
+        "partner_intent": "counter-price",
+        "partner_role": "seller",
+        "agent_role": "buyer",
+        "next_intent": "agree"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"hello i am interested in your bike for sale ", "intent":"intro"},{"role":"seller", "content":"okay , what are you offering ? ", "intent":"inquire"},{"role":"buyer", "content":"i could offer $100 right now", "intent":"init-price"},{"role":"seller", "content":"i can't take that . i would need at least $150 . it is vintage and rare .", "intent":"counter-price"},{"role":"buyer", "content":"i don't know . . . if you can hold it a week i can maybe go upto $125", "intent":"counter-price"}],
+        "partner_utterance": "i would hold it for you for 2 weeks for $140 .",
+        "partner_intent": "counter-price",
+        "partner_role": "seller",
+        "agent_role": "buyer",
+        "next_intent": "agree"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"hello how old is the chair . ", "intent":"inquire"},{"role":"seller", "content":"it is brand new . ", "intent":"inform"},{"role":"buyer", "content":"", "intent":""}],
+        "partner_utterance": "wow sounds great and 50 seems reasonable would be able to go any lower .",
+        "partner_intent": "vague-price",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "vague-price"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"i love the sofa ! how long have you had it ?", "intent":"inquire"},{"role":"seller", "content":"i bought it in march of last year , so a bit longer than one year . ", "intent":"inform"},{"role":"buyer", "content":"i love the color of it , as well . i saw something like this in another store and it was around $400 new . . . is there a way we can get that price a little lower ?", "intent":"init-price"},{"role":"seller", "content":"i am willing to negotiate , sure . what price did you have in mind ? ", "intent":"inquire"},{"role":"buyer", "content":"given the year of usage and my personal budget , i would feel comfortable at $200 . i have friends with a truck . so , you won't have to lift a finger .", "intent":"counter-price"},{"role":"seller", "content":"$200 is lower than i would feel comfortable letting it go for .", "intent":"disagree"}],
+        "partner_utterance": "it is not very old at all , and it really is in almost like new condition , seens a fairly little amount of use . ",
+        "partner_intent": "supplemental",
+        "partner_role": "seller",
+        "agent_role": "buyer",
+        "next_intent": "counter-price"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"hello ! ", "intent":"intro"},{"role":"seller", "content":"hello , are you interested in making a deal ? ", "intent":"intro"}],
+        "partner_utterance": "i'm totally interested ! ",
+        "partner_intent": "intro",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "intro"
+    },
+    {
+        "dialogue_history": [{"role":"seller", "content":"hello there ", "intent":"intro"},{"role":"buyer", "content":"hi . i am inquiring about the apartment . ", "intent":"intro"}],
+        "partner_utterance": "it is a beautiful and well maintained . it is close to shops and restaurant . and we have limited time offer for this month . your first month will be free and we waive your application fees ",
+        "partner_intent": "supplemental",
+        "partner_role": "seller",
+        "agent_role": "buyer",
+        "next_intent": "inquire"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"hello , i am interested in the apartment you have for rent ", "intent":"intro"},{"role":"seller", "content":"great , what can i tell you about it ", "intent":"intro"},{"role":"buyer", "content":"do you have any flexibility on your pet policy ? ", "intent":"inquire"},{"role":"seller", "content":"i don't really mind all pets , if it is a cat or a small dog that is quiet i usually will let you have it there but there is an additional fee of 25 . 00 per month .", "intent":"inform"}],
+        "partner_utterance": "okay thank you . i do not have any pets but it's a good option to have in the future . the price is a little high for my budget at the moment . would you be willing to lower the price if i pay water utilities ? ",
+        "partner_intent": "vague-price",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "init-price"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"hi ! what price are you asking for the bike ?", "intent":"inquire"},{"role":"seller", "content":"was hoping for $40 but that's just so i don't have to drive it around", "intent":"init-price"},{"role":"buyer", "content":"if it is in good condition , i'll come pick it up for $25 so you can get it out of your hair .", "intent":"counter-price"},{"role":"seller", "content":"that sounds great , bike is in good condition so you should have plenty of fun with it ", "intent":"agree"}],
+        "partner_utterance": "great ! $25 then !",
+        "partner_intent": "agree",
+        "partner_role": "buyer",
+        "agent_role": "seller",
+        "next_intent": "thanks"
+    },
+    {
+        "dialogue_history": [{"role":"buyer", "content":"nice sofa", "intent":"unknown"},{"role":"seller", "content":"thanks", "intent":"thanks"},{"role":"buyer", "content":"i can offer you 200 for it", "intent":"init-price"}],
+        "partner_utterance": "$200 is rather low .",
+        "partner_intent": "disagree",
+        "partner_role": "seller",
+        "agent_role": "buyer",
+        "next_intent": "counter-price"
+    }
+]
