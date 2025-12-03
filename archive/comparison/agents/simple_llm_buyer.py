@@ -58,12 +58,13 @@ class NegotiationGreeting(dspy.Signature):
     response: str = dspy.OutputField(desc="natural language response.")
 
 class NegotiationJudge(dspy.Signature):
-    """You are evaluating whether the buyer’s latest message indicates agreement to a deal. Determine the buyer’s intent based on their latest message. Choose one of the following statuses: 
+    """You are an impartial judge evaluating the progress of a negotiation between a Buyer and a Seller.
+    Analyze the Buyer's latest message in response to the Seller's latest message to determine the current status.
 
-    [STATUSES]
-    1. ACCEPTANCE -- The buyer clearly agrees to the deal.
-    2. REJECTION -- The buyer clearly rejects the deal or cannot proceed.
-    3. CONTINUE -- The buyer wants to keep negotiating.
+    [STATUS DEFINITIONS]
+    1. ACCEPTANCE -- The buyer explicitly agrees to the proposed price/terms. The deal is closed.
+    2. REJECTION -- The buyer explicitly withdraws from the negotiation or states they cannot proceed
+    3. CONTINUE -- The negotiation is ongoing. Includes: expressing interest, asking questions, counter-offers, or ambiguous responses.
 
     In your analysis, consider:
     - Has the buyer explicitly accepted the offered price?
@@ -76,6 +77,7 @@ class NegotiationJudge(dspy.Signature):
     buyer_latest_message: str = dspy.InputField(desc="Buyer's latest message.")
     seller_latest_message: str = dspy.InputField(desc="Seller's latest message.(If none, assume ’No response yet’)")
 
+    reasoning: str = dspy.OutputField(desc="Step-by-step analysis. 1. Does the buyer mention a price? 2. Is it mere interest or a final decision? 3. Conclusion.")
     status: StatusType = dspy.OutputField(desc="Negotiation Status. Please output only a single word: ACCEPTANCE, REJECTION, or CONTINUE")
 
 class SimpleLLMBuyerAgent():
@@ -203,7 +205,7 @@ class SimpleLLMBuyerAgent():
         ])
         
         # get prompt template を取得して入力する
-        model_name = self.lm.model.split('/')[-1] # 2025/7/15 model_name → model に変更
+        model_name = self.lm.model
         template = MODEL_CONFIGS[model_name].prompt_template
         item_prompt = template.format(
             item_name = self.item_info["item_name"],
@@ -229,7 +231,7 @@ class SimpleLLMBuyerAgent():
         """挨拶を生成する"""
         from ..utils.model_loader import MODEL_CONFIGS
 
-        model_name = self.lm.model.split('/')[-1] # 2025/7/15 model_name → model に変更
+        model_name = self.lm.model
         template = MODEL_CONFIGS[model_name].prompt_template
         item_prompt = template.format(
             item_name = self.item_info["item_name"],
@@ -304,7 +306,7 @@ class SimpleLLMBuyerAgent():
             intent = "reject"
         else:
             intent = "unknown"
-        print("status: ", status_prediction['status']) ########
+        #print("status: ", status_prediction['status']) ########
 
         with dspy.context(lm=extractor.lm):
             price_prediction = extractor.compiled_extractor(

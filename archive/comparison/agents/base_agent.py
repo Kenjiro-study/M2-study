@@ -1,5 +1,6 @@
 # base_agent.py
 import os, dspy, re, math
+from typing import Literal
 
 from ..strategies import STRATEGIES, CATEGORY_CONTEXT
 from .extractor import PriceExtractor
@@ -38,7 +39,7 @@ class PriceNegotiationManager(dspy.Signature):
 
     # --- 出力フィールド ---
     next_intent = dspy.OutputField(
-        desc="The intent label for the agent's next action. Choose exactly one from the following 4 types: "
+        desc="The intent label for the agent's next action. Choose exactly one from the following 5 types: "
              "counter-price, vague-price, insist, supplemental, thanks"
     )
 
@@ -68,16 +69,6 @@ class InfoNegotiationManager(dspy.Signature):
         desc="The intent label for the agent's next action. Choose exactly one from the following 3 types: "
              "inquire, init-price, supplemental"
     )
-
-#class AddPriceInfo(dspy.Signature):
-    """Change `response` to a negotiation statement asking for the price shown in `price`.
-    """
-    # --- 入力フィールド ---
-    #response = dspy.InputField(desc="Sentences to be corrected")
-    #price = dspy.InputField(desc="The price you want to include in the response")
-
-    # --- 出力フィールド ---
-    #revised_response = dspy.OutputField(desc="A revised response with the correct price information")
 
 class NegotiationPhase:
     GREETING = "GREETING"                   # 挨拶フェーズ
@@ -128,7 +119,6 @@ class BaseAgent:
         self.conversation_history = []
         self.price_history = [] # 自分の価格の履歴
         self.partner_price_history = [] # 相手の価格の履歴
-        self.all_price_history = [] # 自分と相手双方の価格の履歴
         self.pertner_intent_history = [] # 相手のインテントの履歴
         self.last_action = None
         self.partner_data = None # 2025/9/17 追加
@@ -145,10 +135,6 @@ class BaseAgent:
         # predictor modules のセットアップ
         self.price_intent_predictor = dspy.Predict(PriceNegotiationManager)
         self.info_intent_predictor = dspy.Predict(InfoNegotiationManager)
-        #self.response_modifier = dspy.Predict(AddPriceInfo)
-
-        # すべてのモジュールで提供された言語モデルを使用するように DSPy を構成する
-        #dspy.settings.configure(lm=lm)
     
     def round_three_digit(self, price: float):
         if price == 0.0:
@@ -175,7 +161,6 @@ class BaseAgent:
         # 新しい価格が検出されたら, 価格の状態を更新する
         if message['price'] is not None:
             self.price_history.append(message['price'])
-            self.all_price_history.append(message['price'])
         #self.lm.inspect_history(n=1) ###############################
 
         # action 状態を更新する
@@ -203,10 +188,6 @@ class BaseAgent:
         return predicted_class
 
     def update_negotiation_phase(self):
-        # 一度価格交渉フェーズに入ったら戻らない
-        if self.current_phase == NegotiationPhase.PRICE_NEGOTIATION:
-            return
-        
         # 0 or 1ターン目で相手のintentがintroの場合、GREETINGフェーズに移動
         if self.num_turns == 0 or (self.num_turns == 1 and self.partner_data and self.partner_data['intent'] != "init-price"):
             self.current_phase = NegotiationPhase.GREETING
@@ -296,7 +277,7 @@ class BaseAgent:
         ])
         
         # get prompt template を取得して入力する
-        model_name = self.lm.model.split('/')[-1] # 2025/7/15 model_name → model に変更
+        model_name = self.lm.model
         template = MODEL_CONFIGS[model_name].prompt_template
         item_prompt = template.format(
             item_name = self.item_info["item_name"],
@@ -357,7 +338,6 @@ class BaseAgent:
             self.pertner_intent_history.append(self.partner_data['intent'])
             if self.partner_data['price'] != None:
                 self.partner_price_history.append(self.partner_data['price'])
-                self.all_price_history.append(self.partner_data['price'])
             print(f"parser result: {self.partner_data['intent']}(price={self.partner_data['price']})") ########
 
         # マネージャー
@@ -386,12 +366,10 @@ class BaseAgent:
 
         # acceptの場合, 交渉成立価格を記録に残すために自分が承諾したパートナーの最終提案価格を取得
         if message["intent"] == "accept":
-            message["price"] = self.all_price_history[-1]
+            message["price"] = self.partner_price_history[-1]
 
         # 自分自身の状態を更新する
         message = self.update_state(message)
-        print("self.last_action: ", self.last_action) ########
-        print("self.all_price_history: ", self.all_price_history) ########
         return message
 
 
@@ -401,12 +379,6 @@ def test_base_agent():
     agreemate_dir = os.path.dirname(baseline_dir)
     pretrained_dir = os.path.join(agreemate_dir, "models", "pretrained")
     
-    #test_lm = dspy.LM(
-        #model="openai/llama3.1", # llama3.1という名前だが一応llama-3.1-8Bらしい
-        #api_base="http://localhost:11434/v1",
-        #api_key="",
-        #cache_dir=pretrained_dir
-    #)
     test_lm = dspy.LM(
         model="ollama/llama3.1",
         provider="ollama",

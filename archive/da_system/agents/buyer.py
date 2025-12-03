@@ -34,7 +34,7 @@ class NegotiationResponse(dspy.Signature):
     partner_utterance: dict = dspy.InputField(desc="The partner's statement to which we should respond. This includes information on price, role, intended meaning of the statement, and the content of the statement.")
     strategy: str = dspy.InputField(desc="Response strategy. Please generate a response based on this information.")
     language_skill: str = dspy.InputField(desc="Language skills complement strategy")
-    #offer_price: Optional[float] = dspy.InputField(desc="Your proposed price. If it's not None, please be sure to include this price in your response.")
+
     offer_price: str = dspy.InputField(desc="The *exact* price string (e.g., '$1895.0') to include in the response. If 'NONE', do not mention any price.")
 
     response: str = dspy.OutputField(desc="natural language response following strategy guidance")
@@ -191,6 +191,9 @@ class BuyerAgent(BaseAgent):
         # insistと予測されたが, まだ自分が価格提案を行っていない場合, またはinsistが連続した場合はcounter-priceに変更
         if ((intent == "insist") and (not self.price_history)) or ((intent == "insist") and (self.last_action == "insist")):
             intent = "counter-price"
+        # parser等のミスでthanksが連発したら価格交渉に戻す(基本thanksは交渉終了時のみ)
+        elif (intent == "thanks") and (self.last_action == "thanks"):
+            intent = "counter-price"
 
         # 価格の設定
         price =  None  
@@ -208,6 +211,8 @@ class BuyerAgent(BaseAgent):
             if price > self.accept_line:
                 price = self.round_three_digit(self.accept_line)
                 self.accept_line = price * random.uniform(1.05, 1.2)
+                if self.accept_line > self.max_price:
+                    self.accept_line = self.max_price
 
         elif intent == "insist":
             if not self.price_history:
@@ -239,12 +244,13 @@ class BuyerAgent(BaseAgent):
                 }
         
         prediction = self.price_intent_predictor(**self.get_price_manager_context())
-        #dspy.settings.lm.inspect_history(n=1) ########
-        #print("prediction: ", prediction) ########
         intent = (prediction.next_intent).split('\n')[0].strip(" \n`")
 
         # insistと予測されたが, まだ自分が価格提案を行っていない場合, またはinsistが連続した場合はcounter-priceに変更
         if ((intent == "insist") and (not self.price_history)) or ((intent == "insist") and (self.last_action == "insist")):
+            intent = "counter-price"
+        # parser等のミスでthanksが連発したら価格交渉に戻す(基本thanksは交渉終了時のみ)
+        elif (intent == "thanks") and (self.last_action == "thanks"):
             intent = "counter-price"
 
         # 価格の設定
@@ -264,6 +270,8 @@ class BuyerAgent(BaseAgent):
             if price > self.accept_line:
                 price = self.round_three_digit(self.accept_line)
                 self.accept_line = price * random.uniform(1.05, 1.2)
+                if self.accept_line > self.max_price:
+                    self.accept_line = self.max_price
 
         elif intent == "insist":
             if not self.price_history:
@@ -300,6 +308,9 @@ class BuyerAgent(BaseAgent):
         # insistと予測されたが, まだ自分が価格提案を行っていない場合, またはinsistが連続した場合はcounter-priceに変更
         if ((intent == "insist") and (not self.price_history)) or ((intent == "insist") and (self.last_action == "insist")):
             intent = "counter-price"
+        # parser等のミスでthanksが連発したら価格交渉に戻す(基本thanksは交渉終了時のみ)
+        elif (intent == "thanks") and (self.last_action == "thanks"):
+            intent = "counter-price"
 
         # 価格の設定
         price =  None  
@@ -318,6 +329,8 @@ class BuyerAgent(BaseAgent):
             if price > self.accept_line:
                 price = self.round_three_digit(self.accept_line)
                 self.accept_line = price * random.uniform(1.05, 1.2)
+                if self.accept_line > self.max_price:
+                    self.accept_line = self.max_price
 
         elif intent == "insist":
             if not self.price_history:
@@ -332,9 +345,6 @@ class BuyerAgent(BaseAgent):
     
     def info_manager(self) -> dict:
         prediction = self.info_intent_predictor(**self.get_info_manager_context())
-        #dspy.settings.lm.inspect_history(n=1) ########
-        #print(self.lm.history[-1]) #########
-        #print("prediction: ", prediction) ########
         intent = (prediction.next_intent).split('\n')[0].strip(" \n`")
 
         price =  None  
@@ -409,16 +419,6 @@ class BuyerAgent(BaseAgent):
         context["language_skill"] = self.select_language_skill(intent)
         response_prediction = self.response_predictor(**context)
 
-        #if price != None:
-            #info = {"response": response_prediction['response'],"price": price}
-            #revised_response = self.response_modifier(**info)
-            #print(f"origin generator result: {revised_response['revised_response']}") ########
-            #response_prediction['response'] = self.clean_generator_output(revised_response['revised_response'])
-        #else:
-            #print(f"origin generator result: {response_prediction['response']}") ########
-            #response_prediction['response'] = self.clean_generator_output(response_prediction['response'])
-        #dspy.settings.lm.inspect_history(n=1) ########
-        print("response_prediction['response']: ", response_prediction['response'])
         response_prediction['response'] = self.clean_generator_output(response_prediction['response'])
 
         return response_prediction

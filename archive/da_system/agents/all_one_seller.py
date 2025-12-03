@@ -91,17 +91,18 @@ class NegotiationResponse(dspy.Signature):
     )
 
 class NegotiationJudge(dspy.Signature):
-    """You are evaluating whether the buyer’s latest message indicates agreement to a deal. Determine the buyer’s intent based on their latest message. Choose one of the following statuses: 
+    """You are an impartial judge evaluating the progress of a negotiation between a Buyer and a Seller.
+    Analyze the Seller's latest message in response to the Buyer's latest message to determine the current status.
 
-    [STATUSES]
-    1. ACCEPTANCE -- The buyer clearly agrees to the deal.
-    2. REJECTION -- The buyer clearly rejects the deal or cannot proceed.
-    3. CONTINUE -- The buyer wants to keep negotiating.
+    [STATUS DEFINITIONS]
+    1. ACCEPTANCE -- The seller explicitly agrees to the proposed price/terms. The deal is closed.
+    2. REJECTION -- The seller explicitly withdraws from the negotiation or states they cannot proceed
+    3. CONTINUE -- The negotiation is ongoing. Includes: expressing interest, asking questions, counter-offers, or ambiguous responses.
 
     In your analysis, consider:
-    - Has the buyer explicitly accepted the offered price?
-    - Has the buyer explicitly rejected the offer or indicated they are walking away?
-    - Has the buyer said they cannot afford the price?- Is the buyer asking further questions or making a counter-offer?
+    - Has the seller explicitly accepted the offered price?
+    - Has the seller explicitly rejected the offer or indicated they are walking away?
+    - Has the seller said they cannot afford the price?- Is the seller asking further questions or making a counter-offer?
     
     **Please output only a single word: ACCEPTANCE, REJECTION, or CONTINUE**
     """
@@ -109,6 +110,7 @@ class NegotiationJudge(dspy.Signature):
     buyer_latest_message: str = dspy.InputField(desc="Buyer's latest message.(If none, assume ’No response yet’)")
     seller_latest_message: str = dspy.InputField(desc="Seller's latest message.")
 
+    reasoning: str = dspy.OutputField(desc="Step-by-step analysis. 1. Does the buyer mention a price? 2. Is it mere interest or a final decision? 3. Conclusion.")
     status: StatusType = dspy.OutputField(desc="Negotiation Status. Please output only a single word: ACCEPTANCE, REJECTION, or CONTINUE")
 
 class AllinOneLLMSellerAgent():
@@ -148,7 +150,7 @@ class AllinOneLLMSellerAgent():
         self.min_price = self.min_price_select()
 
         # predictor modules のセットアップ
-        self.response_predictor = dspy.Predict(NegotiationResponse)
+        self.response_predictor = dspy.ChainOfThought(NegotiationResponse)
         self.status_predictor = dspy.Predict(NegotiationJudge)
 
     def round_three_digit(self, price: float):
@@ -233,7 +235,7 @@ class AllinOneLLMSellerAgent():
         ])
         
         # get prompt template を取得して入力する
-        model_name = self.lm.model.split('/')[-1] # 2025/7/15 model_name → model に変更
+        model_name = self.lm.model
         template = MODEL_CONFIGS[model_name].prompt_template
         item_prompt = template.format(
             item_name = self.item_info["item_name"],
@@ -336,6 +338,7 @@ class AllinOneLLMSellerAgent():
         }
 
         # acceptの場合, 交渉成立価格を記録に残すために自分が承諾したパートナーの最終提案価格を取得
+        print("self.all_price_history: ", self.all_price_history)
         if message["intent"] == "accept":
             message["price"] = self.all_price_history[-1]
 

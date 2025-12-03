@@ -122,8 +122,30 @@ CATEGORY_CONTEXT = {
         """,
         "negotiation_norms": "Common and expected, but margins typically tight"
     },
+    
+    "phone": {
+        "market_dynamics": """
+            - Highly competitive market
+            - Regular price changes and sales
+            - Strong price comparison shopping
+            - Technical specifications matter
+            - Warranties often negotiable
+        """,
+        "negotiation_norms": "Common and expected, but margins typically tight"
+    },
 
-    "vehicles": {
+    "car": {
+        "market_dynamics": """
+            - High-value items with negotiation expected
+            - Condition and mileage crucial
+            - Seasonal price variations
+            - Multiple components to negotiate
+            - Trade-ins often part of deal
+        """,
+        "negotiation_norms": "Standard practice with significant room for discussion"
+    },
+
+    "bike": {
         "market_dynamics": """
             - High-value items with negotiation expected
             - Condition and mileage crucial

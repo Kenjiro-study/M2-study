@@ -11,8 +11,6 @@ import torch
 from torch.nn.functional import softmax
 
 PRICE_RELATED_INTENTS = ["init-price", "counter-price", "insist"]
-#PNIntentType = Literal['counter-price', 'vague-price', 'insist', 'supplemental', 'thanks']
-INIntentType = Literal['inquire', 'init-price', 'supplemental', 'unknown']
 
 class PriceNegotiationManager(dspy.Signature):
     """As a price negotiation agent, considering the dialogue history, the partner's last utterance, roles, and your own strategy, select the single most strategic "intent" to take next. Currently in the price negotiation phase.
@@ -71,25 +69,6 @@ class InfoNegotiationManager(dspy.Signature):
         desc="The intent label for the agent's next action. Choose exactly one from the following 3 types: "
              "inquire, init-price, supplemental"
     )
-    # --- 出力フィールド ---
-    #next_intent:INIntentType = dspy.OutputField(
-        #desc="The intent label for the agent's next action. Choose exactly one from the following 3 types: "
-             #"inquire, init-price, supplemental"
-             #"If none of the three types match, select unknown."
-    #)
-    #reason = dspy.OutputField(
-        #desc="Please explain why you chose next_intent."
-    #)
-
-#class AddPriceInfo(dspy.Signature):
-    """Change `response` to a negotiation statement asking for the price shown in `price`.
-    """
-    # --- 入力フィールド ---
-    #response = dspy.InputField(desc="Sentences to be corrected")
-    #price = dspy.InputField(desc="The price you want to include in the response")
-
-    # --- 出力フィールド ---
-    #revised_response = dspy.OutputField(desc="A revised response with the correct price information")
 
 class NegotiationPhase:
     GREETING = "GREETING"                   # 挨拶フェーズ
@@ -156,10 +135,6 @@ class BaseAgent:
         # predictor modules のセットアップ
         self.price_intent_predictor = dspy.Predict(PriceNegotiationManager)
         self.info_intent_predictor = dspy.Predict(InfoNegotiationManager)
-        #self.response_modifier = dspy.Predict(AddPriceInfo)
-
-        # すべてのモジュールで提供された言語モデルを使用するように DSPy を構成する
-        #dspy.settings.configure(lm=lm)
     
     def round_three_digit(self, price: float):
         if price == 0.0:
@@ -302,7 +277,7 @@ class BaseAgent:
         ])
         
         # get prompt template を取得して入力する
-        model_name = self.lm.model.split('/')[-1] # 2025/7/15 model_name → model に変更
+        model_name = self.lm.model
         template = MODEL_CONFIGS[model_name].prompt_template
         item_prompt = template.format(
             item_name = self.item_info["item_name"],
@@ -404,12 +379,6 @@ def test_base_agent():
     agreemate_dir = os.path.dirname(baseline_dir)
     pretrained_dir = os.path.join(agreemate_dir, "models", "pretrained")
     
-    #test_lm = dspy.LM(
-        #model="openai/llama3.1", # llama3.1という名前だが一応llama-3.1-8Bらしい
-        #api_base="http://localhost:11434/v1",
-        #api_key="",
-        #cache_dir=pretrained_dir
-    #)
     test_lm = dspy.LM(
         model="ollama/llama3.1",
         provider="ollama",

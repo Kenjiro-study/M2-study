@@ -15,17 +15,25 @@ IntentType = Literal['intro', 'inquire', 'inform', 'init-price', 'counter-price'
 StatusType = Literal['ACCEPTANCE', 'REJECTION', 'CONTINUE']
 
 BUYER_INTENT_DEFINITION = """
-    - intro: Greetings and starting negotiations. Greet the seller briefly or express your interest in their product briefly.
-    - inquire: Questions about products and conditions. Briefly ask the seller specific questions about the item (e.g., condition, usage, accessories, shipping).
-    - inform: Providing information. Answer a question concisely from the seller. Provide the requested information clearly.
-    - supplemental: Additional information and conditions provided. Briefly provide supplementary information (e.g., your reason for wanting to buy, your budget, etc) to support your price or request. This is for justification, not a direct offer.
-    - init-price: First Price Offer. Concisely Make the *first* price proposal. Your response *must* include the `offer_price`.
-    - counter-price: Presenting a counter offer. Concisely Make a counter-offer in response to the seller. Your response *must* include the `offer_price`.
-    - insist: Stick to previous offer price. Re-state your previous `offer_price`. Hold your ground.
-    - vague-price: Vague price mentions. Negotiate the price concisely *without* making a specific offer. (e.g., 'Can you lower the price?', 'What's your best offer?'). Do *not* include an `offer_price`.
-    - disagree: Disagree with the partner's offer. Reject the seller's *current* offer or proposal, *but continue* the negotiation. (e.g., 'That price is still too high.').
-    - agree: Agree with the partner's offer. Explicitly accept the seller's *current* offer or price. This signals the price negotiation is over, but does not end the chat.
-    - thanks: Showing gratitude. A simple, polite expression of thanks during the negotiation. (e.g., 'Thank you.').
+    - intro: Select at the start of negotiations. Say 'Hi' or express interest very briefly. Keep it casual, like a text message.
+    - inquire: Select this when you need to ask about details such as the condition of the product. Ask a quick, short question about condition/shipping. Use simple words. No formal grammar.
+    - inform: Select when answering a question from the other person. Answer the seller's question with just the necessary info. Be blunt and efficient.
+    - supplemental: Select to provide additional information (e.g., product benefits) when the partner's intent was *not* `inquire`. Briefly mention your budget or reason (e.g., 'student here'). Use this to gain sympathy, not as a formal offer.
+    - init-price: Select to make the *first* price proposal. Throw out your first price offer casually. Just the number and a short phrase (e.g., 'How about $X?').
+    - counter-price: Select to propose a *different* price after the partner has proposed an `init-price` or `counter-price`. Counter with a new price. Be direct and short. Do not write a long explanation.
+    - insist: Select to re-state your *previous price* after the partner has made a `counter-price`. Repeat your price stubbornly. Say you can't go higher. Keep it short.
+    - vague-price: Select to negotiate indirectly without stating a specific price (e.g., "That's a bit high..."). Ask for a discount without naming a price yet. Use phrases like 'Can you lower it?' or 'Too expensive'.
+    - disagree: Select this to decline the deal and end negotiations. Reject the current price briefly. Say 'That's too high' or 'No thanks'. Don't be polite.
+    - agree: Select this when you agree to trade at the price proposed by the other party. Say 'OK' or 'I'll take it' to the current price. Keep it very short.
+    - thanks: Select to express your gratitude for reaching an agreement (Condition: Only if your partner's "partner_intent" is "agree" or "thanks”). Say 'Thanks' or 'Cool'. No formal appreciation needed.
+"""
+BUYER_LANGUAGE_SKILLS = """
+    - Emphasis: Complain that the item isn't worth the asking price. Point out flaws or age to drive the price down aggressively.
+    - Emotional Strategy: Act friendly or play the victim (e.g., 'I'm broke', 'It's for my kid'). Use emotional words or emojis to bond.
+    - Compare the Market: Mention that others are selling it cheaper. Say 'I saw this for $X elsewhere' to pressure the seller.
+    - Transaction Guarantee: Promise immediate payment. Say 'I pay right now' or 'Instant decision' to tempt the seller.
+    - Create Urgency: Say you might buy something else if they don't decide now. 'Deciding between this and another one'.
+    - Chat: Just reply normally like a text message. No special tactics, just short and lazy response.
 """
 
 class NegotiationTurn(BaseModel):
@@ -47,7 +55,7 @@ class NegotiationResponse(dspy.Signature):
     2. Extract price information ('partner_price') from the partner's input ('partner_utterance').
     3. Determine your next intent ('next_intent') based on 'conversation_history', 'partner_utterance', 'partner_intent', 'partner_role', and 'agent_role'.
     4. If the intent requires a price offer('init-price', 'counter-price' and 'insist'), determine the offer price ('offer_price')
-    5. Generate a natural language response based on the atrategy based on determined intent('intent_definitions'), price('offer_price') and 'item_information', 'conversation_history', and 'partner_utterrance'.
+    5. Generate a natural language response based on the atrategy based on determined intent('intent_definitions'), price('offer_price') and 'item_information', 'conversation_history', and 'partner_utterrance'. If the intent is one of the following regarding price offers: init-price, counter-price, insist, vague-price, randomly select one from 'language_skills' (Emphasis, Emotional Strategy, Compare the Market, Transaction Guarantee, Create Urgency, Chat) and generate a natural language response based on that skill.
     
     [RESPONSE CONSTRAINTS]
     - You must not exceed your 'budget', otherwise you should reject the offer and say you cannot afford it.
@@ -76,6 +84,7 @@ class NegotiationResponse(dspy.Signature):
     budget: Optional[float] = dspy.InputField(desc="Your budget. Do not exceed this budget under any circumstances.")
     target_price : Optional[float] = dspy.InputField(desc="Your target trading price")
     intent_definitions : str = dspy.InputField(desc="Definitions of 11 types of intent and their strategic role")
+    language_skills : str = dspy.InputField(desc="The language skills used to make statements about price offers")
 
     negotiation_turn: NegotiationTurn = dspy.OutputField(
         desc="A structured object containing analysis, planning, and response."
@@ -96,12 +105,13 @@ class NegotiationGreeting(dspy.Signature):
     response: str = dspy.OutputField(desc="natural language response.")
 
 class NegotiationJudge(dspy.Signature):
-    """You are evaluating whether the buyer’s latest message indicates agreement to a deal. Determine the buyer’s intent based on their latest message. Choose one of the following statuses: 
+    """You are an impartial judge evaluating the progress of a negotiation between a Buyer and a Seller.
+    Analyze the Buyer's latest message in response to the Seller's latest message to determine the current status.
 
-    [STATUSES]
-    1. ACCEPTANCE -- The buyer clearly agrees to the deal.
-    2. REJECTION -- The buyer clearly rejects the deal or cannot proceed.
-    3. CONTINUE -- The buyer wants to keep negotiating.
+    [STATUS DEFINITIONS]
+    1. ACCEPTANCE -- The buyer explicitly agrees to the proposed price/terms. The deal is closed.
+    2. REJECTION -- The buyer explicitly withdraws from the negotiation or states they cannot proceed
+    3. CONTINUE -- The negotiation is ongoing. Includes: expressing interest, asking questions, counter-offers, or ambiguous responses.
 
     In your analysis, consider:
     - Has the buyer explicitly accepted the offered price?
@@ -114,6 +124,7 @@ class NegotiationJudge(dspy.Signature):
     buyer_latest_message: str = dspy.InputField(desc="Buyer's latest message.")
     seller_latest_message: str = dspy.InputField(desc="Seller's latest message.(If none, assume ’No response yet’)")
 
+    reasoning: str = dspy.OutputField(desc="Step-by-step analysis. 1. Does the buyer mention a price? 2. Is it mere interest or a final decision? 3. Conclusion.")
     status: StatusType = dspy.OutputField(desc="Negotiation Status. Please output only a single word: ACCEPTANCE, REJECTION, or CONTINUE")
 
 class AllinOneLLMBuyerAgent():
@@ -154,7 +165,7 @@ class AllinOneLLMBuyerAgent():
 
         # predictor modules のセットアップ
         self.response_predictor = dspy.ChainOfThought(NegotiationResponse)
-        self.greeting_predictor = dspy.Predict(NegotiationGreeting)
+        self.greeting_predictor = dspy.ChainOfThought(NegotiationGreeting)
         self.status_predictor = dspy.Predict(NegotiationJudge)
     
     def round_three_digit(self, price: float):
@@ -241,7 +252,7 @@ class AllinOneLLMBuyerAgent():
         ])
         
         # get prompt template を取得して入力する
-        model_name = self.lm.model.split('/')[-1] # 2025/7/15 model_name → model に変更
+        model_name = self.lm.model
         template = MODEL_CONFIGS[model_name].prompt_template
         item_prompt = template.format(
             item_name = self.item_info["item_name"],
@@ -258,7 +269,8 @@ class AllinOneLLMBuyerAgent():
             "agent_role": self.role,
             "budget": self.max_price,
             "target_price":  self.target_price,
-            "intent_definitions": BUYER_INTENT_DEFINITION
+            "intent_definitions": BUYER_INTENT_DEFINITION,
+            "language_skills": BUYER_LANGUAGE_SKILLS
         }
         response_prediction = self.response_predictor(**context)
         #dspy.settings.lm.inspect_history(n=1) ###############
@@ -279,7 +291,7 @@ class AllinOneLLMBuyerAgent():
         """挨拶を生成する"""
         from ..utils.model_loader import MODEL_CONFIGS
 
-        model_name = self.lm.model.split('/')[-1] # 2025/7/15 model_name → model に変更
+        model_name = self.lm.model
         template = MODEL_CONFIGS[model_name].prompt_template
         item_prompt = template.format(
             item_name = self.item_info["item_name"],
@@ -347,13 +359,14 @@ class AllinOneLLMBuyerAgent():
 
             status_prediction = self.status_judge(response)
 
+        print("status_prediction['status']: ", status_prediction['status']) ###########
         if status_prediction['status'] == "ACCEPTANCE":
             intent = "accept"
         elif status_prediction['status'] == "REJECTION":
             intent = "reject"
         else:
             intent = "unknown"
-        print("status: ", status_prediction['status']) ########
+        #print("status: ", status_prediction['status']) ########
 
         with dspy.context(lm=extractor.lm):
             price_prediction = extractor.compiled_extractor(
@@ -369,6 +382,7 @@ class AllinOneLLMBuyerAgent():
         }
 
         # acceptの場合, 交渉成立価格を記録に残すために自分が承諾したパートナーの最終提案価格を取得
+        print("self.all_price_history: ", self.all_price_history)
         if message["intent"] == "accept":
             message["price"] = self.all_price_history[-1]
 

@@ -58,7 +58,6 @@ class SearchBaseSellerAgent(SellerAgent):
         search_generator =  get_serach_generator(kb)
 
         response_prediction = search_generator.template_message(intent, price=price)
-        print(response_prediction)
             
         # BaseAgentのstepメソッドが期待する形式で応答を返す
         return response_prediction
