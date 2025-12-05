@@ -422,7 +422,8 @@ def handle_chat_message(
     yield (
         chat_history, "", human_agent, ai_agent, 
         gr.update(), gr.update(), 
-        gr.update(interactive=False), gr.update(interactive=False), gr.update(interactive=False)
+        gr.update(interactive=False), gr.update(interactive=False), gr.update(interactive=False),
+        None
     )
 
     # -------------------------------------------------
@@ -507,7 +508,8 @@ def handle_chat_message(
         yield (
             chat_history, "", human_agent, ai_agent, 
             gr.update(), gr.update(), 
-            gr.update(interactive=True), gr.update(interactive=True), gr.update(interactive=True)
+            gr.update(interactive=True), gr.update(interactive=True), gr.update(interactive=True),
+            None
         )
         return # ここで処理終了
 
@@ -520,7 +522,8 @@ def handle_chat_message(
         yield (
             chat_history, "", human_agent, ai_agent, 
             gr.update(), gr.update(), 
-            gr.update(interactive=True), gr.update(interactive=True), gr.update(interactive=True)
+            gr.update(interactive=True), gr.update(interactive=True), gr.update(interactive=True),
+            None
         )
         return # ここで処理終了
     
@@ -534,7 +537,8 @@ def handle_chat_message(
         yield (
             chat_history, "", human_agent, ai_agent, 
             gr.update(), gr.update(), 
-            gr.update(interactive=False), gr.update(interactive=False), gr.update(interactive=False)
+            gr.update(interactive=False), gr.update(interactive=False), gr.update(interactive=False),
+            None
         )
         
         # 5秒待機
@@ -544,7 +548,8 @@ def handle_chat_message(
         yield (
             chat_history, "", human_agent, ai_agent,
             gr.update(visible=False), gr.update(visible=True), # negotiation -> evaluation
-            gr.update(interactive=True), gr.update(interactive=True), gr.update(interactive=True)
+            gr.update(interactive=True), gr.update(interactive=True), gr.update(interactive=True),
+            chat_history
         )
         return # ここで処理終了
     
@@ -553,7 +558,8 @@ def handle_chat_message(
     yield (
         chat_history, "", human_agent, ai_agent,
         gr.update(), gr.update(), 
-        gr.update(interactive=True), gr.update(interactive=True), gr.update(interactive=True)
+        gr.update(interactive=True), gr.update(interactive=True), gr.update(interactive=True),
+        None
     )
 
 def handle_finish_negotiation(
@@ -583,6 +589,7 @@ def handle_finish_negotiation(
         human_agent, ai_agent, 
         gr.update(visible=False), # negotiation_group
         gr.update(visible=True),  # evaluation_group
+        chat_history
     )
 
 
@@ -653,19 +660,36 @@ def handle_submit_evaluation(
     # -------------------------------------------------
     # 2. 今回の結果を保存する
     # -------------------------------------------------
-    current_result = {
-        "session_id": session_id,
-        "config": {
-            "ai_agent_name": ai_agent.__class__.__name__ if ai_agent else "N/A",
-            "ai_agent_role": ai_agent.role if ai_agent else "N/A",
-            "ai_agent_target": ai_agent.target_price if ai_agent else "N/A",
-            "human_role": human_agent.role if human_agent else "N/A",
-            "human_target": human_agent.target_price if human_agent else "N/A",
-            "scenario_id": config.scenario.scenario_id if config else "N/A",
-        },
-        "metrics": metrics_dict,
-        "evaluation": evaluation_scores,
-    }
+    if human_agent.is_buyer:
+        current_result = {
+            "session_id": session_id,
+            "config": {
+                "ai_agent_name": ai_agent.__class__.__name__ if ai_agent else "N/A",
+                "ai_agent_role": ai_agent.role if ai_agent else "N/A",
+                "ai_agent_target": ai_agent.target_price if ai_agent else "N/A",
+                "ai_agent_min_price": ai_agent.min_price if ai_agent else "N/A",
+                "human_role": human_agent.role if human_agent else "N/A",
+                "human_target": human_agent.target_price if human_agent else "N/A",
+                "scenario_id": config.scenario.scenario_id if config else "N/A",
+            },
+            "metrics": metrics_dict,
+            "evaluation": evaluation_scores,
+        }
+    else:
+        current_result = {
+            "session_id": session_id,
+            "config": {
+                "ai_agent_name": ai_agent.__class__.__name__ if ai_agent else "N/A",
+                "ai_agent_role": ai_agent.role if ai_agent else "N/A",
+                "ai_agent_target": ai_agent.target_price if ai_agent else "N/A",
+                "ai_agent_max_price": ai_agent.max_price if ai_agent else "N/A",
+                "human_role": human_agent.role if human_agent else "N/A",
+                "human_target": human_agent.target_price if human_agent else "N/A",
+                "scenario_id": config.scenario.scenario_id if config else "N/A",
+            },
+            "metrics": metrics_dict,
+            "evaluation": evaluation_scores,
+        }
     all_results.append(current_result)
     
     log_filename = os.path.join(results_dir, f"app_gradio_results_{session_id}.jsonl")
@@ -696,7 +720,7 @@ def handle_submit_evaluation(
             gr.update(visible=False),   # evaluation_group
             gr.update(visible=False),   # negotiation_group
             gr.update(visible=True),    # end_group
-            None, None, None, None            # 4 displays
+            None, None, None, None, None           # 4 displays
         )
     
     else:
@@ -799,6 +823,15 @@ with gr.Blocks(theme=theme) as demo:
     with gr.Group(visible=False) as evaluation_group:
         gr.Markdown("## 評価")
         gr.Markdown("交渉は終了しました。")
+
+        # ★★★ 追加: 対話ログ確認用のアコーディオン ★★★
+        with gr.Accordion("▼ 対話ログを確認する（クリックして開閉）", open=False):
+            evaluation_chatbot_display = gr.Chatbot(
+                label="今回の対話ログ", 
+                type='messages', 
+                height=300
+            )
+
         gr.Markdown("今回の交渉相手の「人間らしさ」について, 以下の項目を5段階で評価してください。")
         hl1_slider = gr.Slider(minimum=1, maximum=5, step=1, label="評価項目1：「非機械性」：エージェントに反応に同じ文の反復など, 機械的・事務的なプログラムらしさはなく, 人間らしさがありましたか？(1: 機械的 〜 5: 人間らしい)", value=3)
         hl2_slider = gr.Slider(minimum=1, maximum=5, step=1, label="評価項目2：「説得の論理性」：価格に対するエージェントの説明や理由は、人間が話す内容として納得感できるものでしたか？(1: 非論理的 〜 5: 論理的)", value=3)
@@ -850,7 +883,8 @@ with gr.Blocks(theme=theme) as demo:
             chatbot_display, chat_input,
             state_human_agent, state_ai_agent,
             negotiation_group, evaluation_group,
-            send_button, agree_button, reject_button
+            send_button, agree_button, reject_button,
+            evaluation_chatbot_display
         ]
     )
     # [流れ2] チャット送信 (送信ボタン)
@@ -865,7 +899,8 @@ with gr.Blocks(theme=theme) as demo:
             chatbot_display, chat_input,
             state_human_agent, state_ai_agent,
             negotiation_group, evaluation_group,
-            send_button, agree_button, reject_button
+            send_button, agree_button, reject_button,
+            evaluation_chatbot_display
         ]
     )
     
@@ -880,7 +915,8 @@ with gr.Blocks(theme=theme) as demo:
         outputs=[
             chatbot_display,
             state_human_agent, state_ai_agent,
-            negotiation_group, evaluation_group
+            negotiation_group, evaluation_group,
+            evaluation_chatbot_display
         ]
     )
     # [流れ2 亜種] 非合意ボタン
@@ -894,7 +930,8 @@ with gr.Blocks(theme=theme) as demo:
         outputs=[
             chatbot_display,
             state_human_agent, state_ai_agent,
-            negotiation_group, evaluation_group
+            negotiation_group, evaluation_group,
+            evaluation_chatbot_display
         ]
     )
 
@@ -915,7 +952,8 @@ with gr.Blocks(theme=theme) as demo:
             state_human_agent, state_ai_agent,
             state_config,
             evaluation_group, negotiation_group, end_group,
-            scenario_display, operate_display, caution_display, chatbot_display
+            scenario_display, operate_display, caution_display, chatbot_display,
+            evaluation_chatbot_display
         ]
     )
 
