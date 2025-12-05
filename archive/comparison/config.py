@@ -52,6 +52,17 @@ MODEL_CONFIGS: Dict[str, ModelConfig] = {
             "List Price: {list_price}\n"
             "Description: {description}"
         ),
+    ),
+        "openai/gpt-oss-20b": ModelConfig(
+        name="openai/gpt-oss-20b",
+        max_tokens=65536,#131072,#16384, #8192
+        temperature=0.7,
+        prompt_template=(
+            "Product name: {item_name}\n"
+            "Category: {category}\n"
+            "List Price: {list_price}\n"
+            "Description: {description}"
+        ),
     )
 }
 

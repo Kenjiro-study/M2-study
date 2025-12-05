@@ -34,8 +34,8 @@ class DSPyLMConfig:
                 config['temperature'] *= 0.8
 
             # コミュニケーションスタイルに基づいて最大トークンを調整する
-            if strategy['communication_style'].startswith('Clear'):
-                config['max_tokens'] = min(config['max_tokens'], 256)
+            #if strategy['communication_style'].startswith('Clear'):
+                #config['max_tokens'] = min(config['max_tokens'], 256)
 
         return config
 
@@ -61,14 +61,23 @@ class DSPyManager:
     def _create_lm(self, model_key: str, config: DSPyLMConfig) -> dspy.LM:
         """configuration を使用して新しい DSPy 言語モデルインスタンスを作成する"""
         context_config = config.get_context_config()
+        print(f"Connecting to vLLM at http://localhost:8000/v1 for model {config.base_config.name}...")
 
         try:
+            #return dspy.LM(
+                #model=config.base_config.name,
+                #temperature=context_config['temperature'],
+                #max_tokens=context_config['max_tokens'],
+                #provider="ollama",
+                #cache=True # 効率化のために常にキャッシュする
+            #)
             return dspy.LM(
                 model=config.base_config.name,
+                api_base="http://localhost:8000/v1",  # ここが重要
+                api_key="EMPTY",
                 temperature=context_config['temperature'],
                 max_tokens=context_config['max_tokens'],
-                provider="ollama",
-                cache=True # 効率化のために常にキャッシュする
+                cache=True
             )
         except Exception as e:
             logger.error(f"Failed to create LM for {model_key}: {str(e)}")
@@ -117,11 +126,19 @@ class DSPyManager:
         return lm
     
     def get_extractor_lm(self):
-        lm = dspy.LM(
-            model="ollama/llama3.3:70b",
+        #lm = dspy.LM(
+            #model="ollama/llama3.3:70b",
             #model="ollama/llama3.1",
-            provider="ollama",
-            cache=True,
+            #provider="ollama",
+            #cache=True,
+        #)
+        lm = dspy.LM(
+                model="openai/gpt-oss-20b",
+                api_base="http://localhost:8000/v1",  # ここが重要
+                api_key="EMPTY",
+                temperature=0.7,
+                max_tokens=65536,
+                cache=True
         )
         return lm
 

@@ -53,9 +53,9 @@ MODEL_CONFIGS: Dict[str, ModelConfig] = {
             "Description: {description}"
         ),
     ),
-    "gpt-oss:20b": ModelConfig(
-        name="ollama/gpt-oss:20b",
-        max_tokens=131072,#16384, #8192
+    "openai/gpt-oss-20b": ModelConfig(
+        name="openai/gpt-oss-20b",
+        max_tokens=65536,#131072,#16384, #8192
         temperature=0.7,
         prompt_template=(
             "Product name: {item_name}\n"
@@ -80,13 +80,13 @@ MODEL_CONFIGS: Dict[str, ModelConfig] = {
 # あらかじめ定義された実験の configurations
 EXPERIMENT_CONFIGS: Dict[str, ExperimentConfig] = {
     "baseline": ExperimentConfig(
-        num_scenarios=20,
+        num_scenarios=50,
         #num_scenarios=1,
         max_turns=20,
         turn_timeout=30.0,
         #models=["llama3.1"],
-        models=["llama3.3:70b"],
-        #models=["gpt-oss:20b"],
+        #models=["llama3.3:70b"],
+        models=["openai/gpt-oss-20b"],
         #models=["qwen3:30b"],
         strategies=["length", "fair", "utility"],
         #strategies=["fair"],
@@ -100,7 +100,7 @@ EXPERIMENT_CONFIGS: Dict[str, ExperimentConfig] = {
         turn_timeout=30.0,
         #models=["llama3.1"],
         models=["llama3.3:70b"],
-        #models=["gpt-oss:20b"],
+        #models=["openai/gpt-oss-20b"],
         #strategies=["length", "fair", "utility"]
         strategies=["fair"],
         agents=["damf"] 

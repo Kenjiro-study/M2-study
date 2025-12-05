@@ -33,10 +33,8 @@ try:
     from .dspy_manager import DSPyManager, DSPyLMConfig
     from .config import MODEL_CONFIGS, ModelConfig
     from .strategies import STRATEGIES, CATEGORY_CONTEXT, BUYER_INTENT_CONTEXT, SELLER_INTENT_CONTEXT, BUYER_LANGUAGE_SKILLS, SELLER_LANGUAGE_SKILLS
-    
-    # ★★★ ScenarioManager と DataLoader をインポート ★★★
     from .scenario_manager import ScenarioManager, NegotiationScenario
-    from .utils.data_loader import DataLoader # (仮のパス。data_loader.pyの場所に合わせてください)
+    from .utils.data_loader import DataLoader
 
 except ImportError as e:
     print(f"インポートエラー: {e}")
@@ -44,19 +42,16 @@ except ImportError as e:
     raise
 
 # -----------------------------------------------------------------
-# (仮) NegotiationConfig の定義 (もし別ファイルなら import してください)
+# 1. NegotiationConfig の定義
 # -----------------------------------------------------------------
 @dataclass
 class NegotiationConfig:
     scenario: NegotiationScenario
     max_turns: int = 20
-    # (ターミナル版のNegotiationConfigが他にあれば、そちらをimport)
-
 # -----------------------------------------------------------------
 # 2. Gradio対応 HumanAgent (GradioHumanAgent)
 # -----------------------------------------------------------------
 class GradioHumanAgent(HumanAgent):
-    # ( ... (前回のコードと同じ) ... )
     _parser = None
     _tokenizer = None
     _device = None
@@ -66,7 +61,6 @@ class GradioHumanAgent(HumanAgent):
         if cls._parser is None or cls._tokenizer is None:
             print("--- Loading HumanAgent Parser (初回のみ) ---")
             cls._device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-            # TODO: このパスが app_gradio.py の実行位置から見て正しいか確認
             checkpoint = "archive/comparison/agents/parser/model/roberta_fold_1/checkpoint-82304"
             cls._parser = AutoModelForSequenceClassification.from_pretrained(checkpoint, num_labels=12)
             cls._tokenizer = AutoTokenizer.from_pretrained(checkpoint)
@@ -98,11 +92,9 @@ except Exception as e:
     print(f"PriceExtractorの初期化に失敗: {e}")
     price_extractor_instance = None
 
-# (3) ★★★ 本物の ScenarioManager ★★★
+# (3) ScenarioManager
 try:
-    # TODO: 'data_dir' のパスを、CSVファイル (train.csvなど) があるディレクトリに
-    #       正しく指定してください。
-    data_loader = DataLoader() # (仮のパス)
+    data_loader = DataLoader()
     scenario_manager = ScenarioManager(data_loader=data_loader)
     print(f"--- Real ScenarioManager 初期化完了 ---")
     print(f"--- (Loaded {len(scenario_manager.test_df)} test scenarios) ---")
@@ -114,14 +106,14 @@ except Exception as e:
 
 # (4) 8パターンのエージェント組み合わせ (本番用)
 ALL_AGENT_COMBINATIONS = [
-    #{"model_key": "llama3.3:70b", "agent_name": "damf", "role": "seller", "strategy": "fair"},
-    {"model_key": "llama3.3:70b", "agent_name": "search", "role": "seller", "strategy": "fair"},
-    #{"model_key": "llama3.3:70b", "agent_name": "simple", "role": "seller", "strategy": "free"},
-    #{"model_key": "llama3.3:70b", "agent_name": "all", "role": "seller", "strategy": "free"},
-    #{"model_key": "llama3.3:70b", "agent_name": "damf", "role": "buyer", "strategy": "fair"},
-    #{"model_key": "llama3.3:70b", "agent_name": "search", "role": "buyer", "strategy": "fair"},
-    #{"model_key": "llama3.3:70b", "agent_name": "simple", "role": "buyer", "strategy": "free"},
-    #{"model_key": "llama3.3:70b", "agent_name": "all", "role": "buyer", "strategy": "free"},
+    {"model_key": "openai/gpt-oss-20b", "agent_name": "damf", "role": "seller", "strategy": "fair"},
+    {"model_key": "openai/gpt-oss-20b", "agent_name": "search", "role": "seller", "strategy": "fair"},
+    {"model_key": "openai/gpt-oss-20b", "agent_name": "simple", "role": "seller", "strategy": "free"},
+    {"model_key": "openai/gpt-oss-20b", "agent_name": "all", "role": "seller", "strategy": "free"},
+    {"model_key": "openai/gpt-oss-20b", "agent_name": "damf", "role": "buyer", "strategy": "fair"},
+    {"model_key": "openai/gpt-oss-20b", "agent_name": "search", "role": "buyer", "strategy": "fair"},
+    {"model_key": "openai/gpt-oss-20b", "agent_name": "simple", "role": "buyer", "strategy": "free"},
+    {"model_key": "openai/gpt-oss-20b", "agent_name": "all", "role": "buyer", "strategy": "free"},
 ]
 # 実験回数はこのリストの長さになる
 NUM_SESSIONS = len(ALL_AGENT_COMBINATIONS)
@@ -449,7 +441,6 @@ def handle_chat_message(
     
     ai_intent_str = copy.copy(ai_response_dict['intent'])
     chat_history.append({"role": "assistant", "content": ai_response_dict["content"]})
-    print("ai seller's accept line: ", ai_agent.accept_line) #######
 
     # -------------------------------------------------
     # 3. ★★★ AIの応答を HumanAgent が解析するターン ★★★
@@ -596,7 +587,7 @@ def handle_finish_negotiation(
 
 
 def handle_submit_evaluation(
-    human_likeness_score,  # [Input] human_likeness_slider
+    hl1_score, hl2_score, hl3_score, hl4_score, hl5_score,  # [Input] human_likeness_slider
     human_agent, ai_agent, # [Input]
     all_results,           # [Input] state_all_results
     task_queue,            # [Input] state_task_queue (★ `agent_queue` -> `task_queue`)
@@ -652,6 +643,13 @@ def handle_submit_evaluation(
         print(f"Metricsの事後生成でエラー: {e}")
         metrics_dict = f"METRICS_ERROR: {e}"
 
+    evaluation_scores = {
+        "human_likeness_1": hl1_score,
+        "human_likeness_2": hl2_score,
+        "human_likeness_3": hl3_score,
+        "human_likeness_4": hl4_score,
+        "human_likeness_5": hl5_score,
+    }
     # -------------------------------------------------
     # 2. 今回の結果を保存する
     # -------------------------------------------------
@@ -666,7 +664,7 @@ def handle_submit_evaluation(
             "scenario_id": config.scenario.scenario_id if config else "N/A",
         },
         "metrics": metrics_dict,
-        "human_likeness": human_likeness_score,
+        "evaluation": evaluation_scores,
     }
     all_results.append(current_result)
     
@@ -741,7 +739,6 @@ theme = gr.themes.Soft(
 )
 
 with gr.Blocks(theme=theme) as demo:
-    
     # -----------------------------------------------------------------
     # 状態管理 (UIに見えないデータ)
     # -----------------------------------------------------------------
@@ -802,8 +799,12 @@ with gr.Blocks(theme=theme) as demo:
     with gr.Group(visible=False) as evaluation_group:
         gr.Markdown("## 評価")
         gr.Markdown("交渉は終了しました。")
-        gr.Markdown("今回の交渉相手の「人間らしさ」を5段階で評価してください。")
-        human_likeness_slider = gr.Slider(minimum=1, maximum=5, step=1, label="人間らしさ (1: 機械的 〜 5: 人間らしい)", value=3)
+        gr.Markdown("今回の交渉相手の「人間らしさ」について, 以下の項目を5段階で評価してください。")
+        hl1_slider = gr.Slider(minimum=1, maximum=5, step=1, label="評価項目1：「非機械性」：エージェントに反応に同じ文の反復など, 機械的・事務的なプログラムらしさはなく, 人間らしさがありましたか？(1: 機械的 〜 5: 人間らしい)", value=3)
+        hl2_slider = gr.Slider(minimum=1, maximum=5, step=1, label="評価項目2：「説得の論理性」：価格に対するエージェントの説明や理由は、人間が話す内容として納得感できるものでしたか？(1: 非論理的 〜 5: 論理的)", value=3)
+        hl3_slider = gr.Slider(minimum=1, maximum=5, step=1, label="評価項目3：「話の簡潔性」：エージェントの反応は論点が1,2点にまとまって簡潔なものでしたか？(1: 冗長 〜 5: 簡潔))", value=3)
+        hl4_slider = gr.Slider(minimum=1, maximum=5, step=1, label="評価項目4：「自然さ」：意味が理解できない応答や, 不当な価格提案はなく, 交渉者としてエージェントの反応は自然なものでしたか？(1: 不自然 〜 5: 自然))", value=3)
+        hl5_slider = gr.Slider(minimum=1, maximum=5, step=1, label="評価項目5：「交渉力」：エージェントは直接的な価格交渉のみならず, 商品の状態への質問など対話を深めて交渉を有利に進めようとしていましたか？ (1: 交渉力がない 〜 5: 交渉力がある))", value=3)
         evaluation_submit_button = gr.Button("評価を送信して次へ", variant="primary")
 
     # --- ④ 終了画面 ---
@@ -901,7 +902,7 @@ with gr.Blocks(theme=theme) as demo:
     evaluation_submit_button.click(
         fn=handle_submit_evaluation,
         inputs=[
-            human_likeness_slider,
+            hl1_slider, hl2_slider, hl3_slider, hl4_slider, hl5_slider,
             state_human_agent, state_ai_agent,
             state_all_results,
             state_task_queue,
@@ -909,7 +910,6 @@ with gr.Blocks(theme=theme) as demo:
             state_session_id
         ],
         outputs=[
-            # ★★★ 修正 (NameError) ★★★
             # (returnの順番と数を合わせる)
             state_all_results, state_task_queue,
             state_human_agent, state_ai_agent,

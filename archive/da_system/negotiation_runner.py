@@ -44,6 +44,8 @@ class NegotiationMetrics:
     seller_hcv: bool = False
     buyer_target_price: Optional[float] = None
     seller_target_price: Optional[float] = None
+    buyer_max_price: Optional[float] = None
+    seller_min_price: Optional[float] = None
     final_price: Optional[float] = None
     buyer_utility: Optional[float] = None
     seller_utility: Optional[float] = None
@@ -412,6 +414,8 @@ class NegotiationRunner:
                 buyer, seller = self._initialize_agents(config)
                 metrics.buyer_target_price = buyer.target_price
                 metrics.seller_target_price = seller.target_price
+                metrics.buyer_max_price = buyer.max_price
+                metrics.seller_min_price = seller.min_price
                 # 価格抽出器を初期化 2025/9/17追加
                 price_extractor = self._initialize_extractor()
                 

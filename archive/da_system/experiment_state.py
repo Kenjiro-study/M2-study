@@ -32,12 +32,12 @@ class ModelPairMetrics:
     """特定のモデルペアの組み合わせのための Metrics"""
     buyer_model: str
     seller_model: str
-    num_negotiations: int = 0
-    seller_hcv: int = 0
     buyer_hcv: int = 0
-    deal_rate: float = 0.0
-    seller_hcv_rate: float = 0.0
+    seller_hcv: int = 0
     buyer_hcv_rate: float = 0.0
+    seller_hcv_rate: float = 0.0
+    num_negotiations: int = 0
+    deal_rate: float = 0.0
     avg_turns: float = 0.0
     avg_buyer_utility: float = 0.0
     avg_seller_utility: float = 0.0

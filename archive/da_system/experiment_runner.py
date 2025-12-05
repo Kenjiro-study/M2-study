@@ -113,7 +113,7 @@ class ExperimentRunner:
                                         'buyer_model': buyer_model,
                                         'seller_model': seller_model,
                                         'buyer_strategy': 'free',
-                                        'seller_strategy': buyer_strategy,
+                                        'seller_strategy': seller_strategy,
                                         'buyer_agent': buyer_agent,
                                         'seller_agent': seller_agent
                                     })
