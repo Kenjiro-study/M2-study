@@ -13,7 +13,7 @@ jupyterlab
 ipywidgets
 
 # Data Science packages
-numpy
+numpy<2.3
 pandas
 matplotlib
 

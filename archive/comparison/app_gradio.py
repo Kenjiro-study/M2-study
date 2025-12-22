@@ -397,6 +397,11 @@ def handle_chat_message(
     """
     print("--- イベント: handle_chat_message ---")
     
+    # gradioの状態管理で稀にNoneとなってしまった場合のリカバリ処理
+    if extractor is None:
+        print("Warning: extractor arg is None. Using global price_extractor_instance.")
+        extractor = price_extractor_instance
+    
     # -------------------------------------------------
     # 1. 被験者 (Human) のターン (状態更新)
     # -------------------------------------------------
@@ -573,6 +578,11 @@ def handle_finish_negotiation(
     """
     print(f"--- イベント: handle_finish_negotiation (type: {decision_type}) ---")
 
+    # ★★★ 追加: extractor が None の場合のリカバリ処理 ★★★
+    if extractor is None:
+        print("Warning: extractor arg is None. Using global price_extractor_instance.")
+        extractor = price_extractor_instance
+
     # 1. 人間の最終意思決定を HumanAgent の状態に反映
     human_message_text = "【交渉合意】" if decision_type == "accept" else "【交渉非合意】"
     human_message_dict = human_agent.update_state(
@@ -715,12 +725,11 @@ def handle_submit_evaluation(
             print(f"最終ログ保存エラー: {e}")
             
         return (
-            all_results, task_queue,
-            None, None, None, # 5 states
-            gr.update(visible=False),   # evaluation_group
-            gr.update(visible=False),   # negotiation_group
-            gr.update(visible=True),    # end_group
-            None, None, None, None, None           # 4 displays
+            all_results, task_queue, 
+            None, None, None, # 3 states
+            gr.update(visible=False), gr.update(visible=False), gr.update(visible=True), # 3 groups
+            None, None, None, None, # 4 text displays (scenario, operate, caution, chatbot)
+            None # ★追加: evaluation_chatbot_display
         )
     
     else:
@@ -750,7 +759,8 @@ def handle_submit_evaluation(
             scenario_text,           # [Output] scenario_display
             operate_text,            # [Output] operate_display
             caution_text,            # [Output] caution_display
-            initial_chat_history     # [Output] chatbot_display (リセット)
+            initial_chat_history,     # [Output] chatbot_display (リセット)
+            []                       # ★追加: evaluation_chatbot_display (リセット)
         )
 
 # -----------------------------------------------------------------

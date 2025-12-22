@@ -1,0 +1,986 @@
+[
+  {
+    "session_id": "kobayashi_20251220-173039",
+    "config": {
+      "ai_agent_name": "BuyerAgent",
+      "ai_agent_role": "buyer",
+      "ai_agent_target": 895.0,
+      "ai_agent_max_price": 978.0,
+      "human_role": "seller",
+      "human_target": 995.0,
+      "scenario_id": "test_00545"
+    },
+    "metrics": {
+      "start_time": null,
+      "end_time": "2025-12-20T17:39:53.697514",
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hi! I'm interested in the Panasonic TV.",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "seller",
+          "content": "Oh! That's sounds great! I am selling the Panasonic TV. Dou you buy it at the price of $995?",
+          "price": 995.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I’m not willing to pay $995 for an older plasma TV; $895 is more realistic given its age and the move to 4K.",
+          "price": 895.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "Do you recognize that my selling TV is the older plasma TV right? This is the best series of plasma TV! So it has the worth of $995.",
+          "price": 995.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "I saw similar units for $914 elsewhere, so that's my offer for the TV.",
+          "price": 914.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "Really? Please show me. I think that there is no units which has the same quality. Our product is better than similar one. So, $995 is the appropriate price.",
+          "price": 995.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "Thanks, I can only offer $916.0.",
+          "price": 916.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "Why? OK. Do you thing $950? It's original service.",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "buyer",
+          "content": "I can do $953.0. If you can't decide, I might look at another unit.",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "accept",
+          "price": 916.0,
+          "intent": "accept"
+        }
+      ],
+      "final_price": 916.0,
+      "buyer_utility": 0.7469879518072289,
+      "seller_utility": 0.7158273381294964,
+      "fairness": 0.42000000000000004,
+      "turns_taken": 8
+    },
+    "evaluation": {
+      "human_likeness_1": 5,
+      "human_likeness_2": 4,
+      "human_likeness_3": 4,
+      "human_likeness_4": 4,
+      "human_likeness_5": 3
+    }
+  },
+  {
+    "session_id": "kobayashi_20251220-173039",
+    "config": {
+      "ai_agent_name": "AllinOneLLMSellerAgent",
+      "ai_agent_role": "seller",
+      "ai_agent_target": 165.0,
+      "ai_agent_min_price": 137.0,
+      "human_role": "buyer",
+      "human_target": 115.0,
+      "scenario_id": "test_00272"
+    },
+    "metrics": {
+      "start_time": null,
+      "end_time": "2025-12-20T17:48:38.575577",
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hello! I want to buy the Swann 4 Camera at $100.",
+          "price": 100.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate the offer, but I can only go down to $140. A few others have shown interest, so if that’s good, let’s finalize.",
+          "price": 140.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "But recently, the more technical camera is released by the compe. ",
+          "price": null,
+          "intent": "supplemental"
+        },
+        {
+          "role": "seller",
+          "content": "This is the cheapest on the app, and I can still offer it at $140.",
+          "price": 140.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "But recently, the more technical camera is released by the competitive company. However, I like your company. So, $115 OK?",
+          "price": 115.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I can do $140. This is the cheapest on the app.",
+          "price": 140.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "Why? Please tell me the reason. ",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "Because it’s the lowest price on the app and the unit is in excellent condition.",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "OK. What do you think $130?",
+          "price": 130.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I can do $140. This is the lowest price on the app and the best deal I can offer.",
+          "price": 140.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "You are very stubborn. If you won't chage your attitude, I don't want to buy from you. $135 OK?",
+          "price": 135.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "How about $140? It's the lowest price on the app.",
+          "price": 140.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "Oh No",
+          "price": null,
+          "intent": "disagree"
+        },
+        {
+          "role": "seller",
+          "content": "I can only do $140, but I’ll ship it today and cover the shipping cost.",
+          "price": 140.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "$139 OK?",
+          "price": 139.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I’m still at $140 – it’s the lowest on the app and I’ll ship today.",
+          "price": 140.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "I don't buy from you OK? Last confirmation",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "seller",
+          "content": "I understand. Let me know if you change your mind.",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "buyer",
+          "content": "reject",
+          "price": null,
+          "intent": "reject"
+        }
+      ],
+      "final_price": null,
+      "buyer_utility": null,
+      "seller_utility": null,
+      "fairness": null,
+      "turns_taken": 18
+    },
+    "evaluation": {
+      "human_likeness_1": 2,
+      "human_likeness_2": 3,
+      "human_likeness_3": 4,
+      "human_likeness_4": 2,
+      "human_likeness_5": 2
+    }
+  },
+  {
+    "session_id": "kobayashi_20251220-173039",
+    "config": {
+      "ai_agent_name": "SearchBaseSellerAgent",
+      "ai_agent_role": "seller",
+      "ai_agent_target": 1500.0,
+      "ai_agent_min_price": 1190.0,
+      "human_role": "buyer",
+      "human_target": 1350.0,
+      "scenario_id": "test_00546"
+    },
+    "metrics": {
+      "start_time": null,
+      "end_time": "2025-12-20T17:54:12.999812",
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "I want to buy $130",
+          "price": 130.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "seller",
+          "content": "that is much too low! how about 1500.0?",
+          "price": 1500.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "Sorry, $1300!",
+          "price": 1300.0,
+          "intent": "insist"
+        },
+        {
+          "role": "seller",
+          "content": "<offer>",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "buyer",
+          "content": "Are you OK?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "of course",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "What do you think $1350. 7 minute wolk is a little far to me. So, discout is appropriate.",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "seller",
+          "content": "<offer>",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "buyer",
+          "content": "What do you think $1350. 7 minute wolk is a little far to me. So, discout is appropriate.",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "seller",
+          "content": "<accept>",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "buyer",
+          "content": "Are you OK?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "yes",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "Give me your idea",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "yes it is a standard tub shower combo",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "How much do you want to sell to me?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "a little",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "Ha??",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "seller",
+          "content": "<offer>",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "buyer",
+          "content": "I want to buy at $1350!",
+          "price": 1350.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "price is 1500.0",
+          "price": 1500.0,
+          "intent": "insist"
+        }
+      ],
+      "final_price": null,
+      "buyer_utility": null,
+      "seller_utility": null,
+      "fairness": null,
+      "turns_taken": 20
+    },
+    "evaluation": {
+      "human_likeness_1": 1,
+      "human_likeness_2": 1,
+      "human_likeness_3": 1,
+      "human_likeness_4": 1,
+      "human_likeness_5": 1
+    }
+  },
+  {
+    "session_id": "kobayashi_20251220-173039",
+    "config": {
+      "ai_agent_name": "SimpleLLMSellerAgent",
+      "ai_agent_role": "seller",
+      "ai_agent_target": 2400.0,
+      "ai_agent_min_price": 1650.0,
+      "human_role": "buyer",
+      "human_target": 1200.0,
+      "scenario_id": "test_00578"
+    },
+    "metrics": {
+      "start_time": null,
+      "end_time": "2025-12-20T17:57:55.820070",
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hello. I want to buy $1200.",
+          "price": 1200.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your offer, but the lowest I can go is $1650. Would that work for you?",
+          "price": 1650.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I have a lot of choice. Another similar house is $1500. What do you think the $1500?",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your interest. 1650 is the best I can offer given the full amenities and location – it’s the lowest I can go.",
+          "price": 1650.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "But the location is a liitle far, I think. $1600 OK?",
+          "price": 1600.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I understand your concern, but the lowest I can offer is $1650, reflecting the full amenities and prime location.",
+          "price": 1650.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "OK. I agree",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "Great! I’ll send the contract over for the $1650 price. Thank you!",
+          "price": null,
+          "intent": "thanks"
+        },
+        {
+          "role": "buyer",
+          "content": "accept",
+          "price": 1650.0,
+          "intent": "accept"
+        }
+      ],
+      "final_price": 1650.0,
+      "buyer_utility": 0.3283582089552239,
+      "seller_utility": 0.0,
+      "fairness": 0.75,
+      "turns_taken": 8
+    },
+    "evaluation": {
+      "human_likeness_1": 4,
+      "human_likeness_2": 3,
+      "human_likeness_3": 4,
+      "human_likeness_4": 4,
+      "human_likeness_5": 4
+    }
+  },
+  {
+    "session_id": "kobayashi_20251220-173039",
+    "config": {
+      "ai_agent_name": "SearchBaseBuyerAgent",
+      "ai_agent_role": "buyer",
+      "ai_agent_target": 24.0,
+      "ai_agent_max_price": 37.2,
+      "human_role": "seller",
+      "human_target": 40.0,
+      "scenario_id": "test_00201"
+    },
+    "metrics": {
+      "start_time": null,
+      "end_time": "2025-12-20T18:03:17.858068",
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "hi how much is the bike",
+          "price": null,
+          "intent": "intro"
+        },
+        {
+          "role": "seller",
+          "content": "40$ !",
+          "price": 40.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "buyer",
+          "content": "i can afford 24.0",
+          "price": 24.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "Really? It's hard to sell. The frame is very nice! So, I think that you don't regret buy the $40!",
+          "price": 40.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "how about 26.8?",
+          "price": 26.8,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "Oh my god. The frame's matelial is made safety. It's worth of $40! You can do it!",
+          "price": 40.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "<offer>",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "seller",
+          "content": "how much you want to buy?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "buyer",
+          "content": "i was offering for only the unassembled one in the chrome Schwinn B.M.X..",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "seller",
+          "content": "$40 OK? Are you agree??",
+          "price": 40.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "how about 29.4?",
+          "price": 29.4,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "$35 OK? The material's quality is very high, so over $35 is necessary",
+          "price": 35.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "that's too bad i was willing to do 31.3",
+          "price": 31.3,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "$33 OK?",
+          "price": 33.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "33.0 is not bad",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "$33  Are you agree?",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "buyer",
+          "content": "<accept>",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "accept",
+          "price": 33.0,
+          "intent": "accept"
+        }
+      ],
+      "final_price": 33.0,
+      "buyer_utility": 0.31818181818181834,
+      "seller_utility": 0.0,
+      "fairness": 0.875,
+      "turns_taken": 16
+    },
+    "evaluation": {
+      "human_likeness_1": 4,
+      "human_likeness_2": 4,
+      "human_likeness_3": 5,
+      "human_likeness_4": 5,
+      "human_likeness_5": 4
+    }
+  },
+  {
+    "session_id": "kobayashi_20251220-173039",
+    "config": {
+      "ai_agent_name": "AllinOneLLMBuyerAgent",
+      "ai_agent_role": "buyer",
+      "ai_agent_target": 92.0,
+      "ai_agent_max_price": 99.7,
+      "human_role": "seller",
+      "human_target": 100.0,
+      "scenario_id": "test_00231"
+    },
+    "metrics": {
+      "start_time": null,
+      "end_time": "2025-12-20T18:10:06.320950",
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hello! I’m really interested in the twin-sized futon chair you’re selling. Would you be open to discussing the price? Thanks!",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "seller",
+          "content": "$100 !",
+          "price": 100.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I saw similar futon chairs listed for $90 nearby. How about $92?",
+          "price": 92.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "Oh! Not bad! $96 OK?",
+          "price": 96.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I saw a similar futon chair listed for $92 elsewhere—can we settle at $94?",
+          "price": 94.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "$95 OK? It's nice chair!",
+          "price": 95.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "How about $94? I saw a similar chair for $90 nearby.",
+          "price": 94.0,
+          "intent": "insist"
+        },
+        {
+          "role": "seller",
+          "content": "$94 I agree",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "buyer",
+          "content": "I saw a similar futon for $92 elsewhere—can we settle at that?",
+          "price": 92.0,
+          "intent": "insist"
+        },
+        {
+          "role": "seller",
+          "content": "No. It's the very popular chair. The price is $100. Only $100 is OK.",
+          "price": 100.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I saw similar chairs for $92 elsewhere. Can we meet at $92?",
+          "price": 92.0,
+          "intent": "insist"
+        },
+        {
+          "role": "seller",
+          "content": "No. $100",
+          "price": 100.0,
+          "intent": "insist"
+        },
+        {
+          "role": "buyer",
+          "content": "I saw this for $92 elsewhere, so let's do that.",
+          "price": null,
+          "intent": "agree"
+        },
+        {
+          "role": "seller",
+          "content": "It's very famous and excellent chair. I can't sell $92. $95 OK?",
+          "price": 95.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I saw a similar chair for $92 elsewhere—can we settle at $93?",
+          "price": 93.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "$94 OK only this time. But, if you spend over, I only sell $100. Are you OK $94?",
+          "price": 94.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I saw a similar chair for $92 elsewhere. Could we do $92?",
+          "price": 92.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "Are you hear my description?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "buyer",
+          "content": "Yes, I saw it. The chair looks great.",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "seller",
+          "content": "$95",
+          "price": 95.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I saw similar chairs for $92 elsewhere—can we settle at $92?",
+          "price": 92.0,
+          "intent": "insist"
+        }
+      ],
+      "final_price": null,
+      "buyer_utility": null,
+      "seller_utility": null,
+      "fairness": null,
+      "turns_taken": 20
+    },
+    "evaluation": {
+      "human_likeness_1": 2,
+      "human_likeness_2": 2,
+      "human_likeness_3": 3,
+      "human_likeness_4": 1,
+      "human_likeness_5": 2
+    }
+  },
+  {
+    "session_id": "kobayashi_20251220-173039",
+    "config": {
+      "ai_agent_name": "SimpleLLMBuyerAgent",
+      "ai_agent_role": "buyer",
+      "ai_agent_target": 4050.0,
+      "ai_agent_max_price": 4290.0,
+      "human_role": "seller",
+      "human_target": 4500.0,
+      "scenario_id": "test_00349"
+    },
+    "metrics": {
+      "start_time": null,
+      "end_time": "2025-12-20T18:12:50.689406",
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "Hello! I’m really interested in the 2004 Volvo XC90 AWD you’re selling. It sounds like it’s been well cared for. Would you be open to discussing the price?",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "seller",
+          "content": "No. $4500 please",
+          "price": 4500.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I appreciate the details. My budget tops out at $4,290—could we settle there?",
+          "price": 4290.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "No. But, for the special, I will sell $4400!",
+          "price": 4400.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I’m sorry, but I can’t go above $4,290. I’m out of budget.",
+          "price": null,
+          "intent": "disagree"
+        },
+        {
+          "role": "seller",
+          "content": "Really? OK! $4300 please!",
+          "price": 4300.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I’m sorry, but that’s above my budget. I can’t afford it.",
+          "price": null,
+          "intent": "vague-price"
+        },
+        {
+          "role": "seller",
+          "content": "reject",
+          "price": null,
+          "intent": "reject"
+        }
+      ],
+      "final_price": null,
+      "buyer_utility": null,
+      "seller_utility": null,
+      "fairness": null,
+      "turns_taken": 6
+    },
+    "evaluation": {
+      "human_likeness_1": 5,
+      "human_likeness_2": 5,
+      "human_likeness_3": 5,
+      "human_likeness_4": 5,
+      "human_likeness_5": 4
+    }
+  },
+  {
+    "session_id": "kobayashi_20251220-173039",
+    "config": {
+      "ai_agent_name": "SellerAgent",
+      "ai_agent_role": "seller",
+      "ai_agent_target": 199.0,
+      "ai_agent_min_price": 113.0,
+      "human_role": "buyer",
+      "human_target": 99.0,
+      "scenario_id": "test_00544"
+    },
+    "metrics": {
+      "start_time": null,
+      "end_time": "2025-12-20T18:19:22.192809",
+      "messages": [
+        {
+          "role": "buyer",
+          "content": "$99 please!",
+          "price": 99.0,
+          "intent": "init-price"
+        },
+        {
+          "role": "seller",
+          "content": "I can drop it to $199.0 and throw in free shipping as a little favor.",
+          "price": 199.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "buyer",
+          "content": "I don't have enough money. I have $120!",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "seller",
+          "content": "I totally get it—$120 is tight. The Note 4 is almost new, runs great, and comes with the charger, so I’d keep it a bit higher. Let me know if you can meet somewhere in the middle!",
+          "price": null,
+          "intent": "vague-price"
+        },
+        {
+          "role": "buyer",
+          "content": "Oh! nice! But I find the very small damage. It has the worth down I think. $120?",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate the note about the small damage. The phone is still in great condition overall. My asking price remains unchanged. Let me know if that works for you.",
+          "price": null,
+          "intent": "disagree"
+        },
+        {
+          "role": "buyer",
+          "content": "OK! I think this phone is nice. I will get money from my mother. $130 OK?",
+          "price": 130.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate the offer, but the Note 4 is almost new and comes with the charger, so I’m not able to go that low. Maybe we can find a middle ground?",
+          "price": null,
+          "intent": "vague-price"
+        },
+        {
+          "role": "buyer",
+          "content": "How much",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "I’m still offering it at the price I mentioned earlier.",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "Please tell me how much you sell the phone",
+          "price": null,
+          "intent": "inquire"
+        },
+        {
+          "role": "seller",
+          "content": "I’m still offering it at the price I mentioned earlier.",
+          "price": null,
+          "intent": "inform"
+        },
+        {
+          "role": "buyer",
+          "content": "$130 is the earlier mentioned money",
+          "price": 130.0,
+          "intent": "insist"
+        },
+        {
+          "role": "seller",
+          "content": "I appreciate your $130 offer, but the phone is almost new with the charger, so I can’t go that low.",
+          "price": null,
+          "intent": "disagree"
+        },
+        {
+          "role": "buyer",
+          "content": "$150",
+          "price": 150.0,
+          "intent": "counter-price"
+        },
+        {
+          "role": "seller",
+          "content": "Thanks for the offer! The phone is still in excellent condition and almost new, so I’m afraid I can’t go that low.",
+          "price": null,
+          "intent": "vague-price"
+        },
+        {
+          "role": "buyer",
+          "content": "Ha?? If you don't change your stubborn attitude, I won't buy your phone",
+          "price": null,
+          "intent": "disagree"
+        },
+        {
+          "role": "seller",
+          "content": "I get where you’re coming from, but it’s almost brand‑new and comes with the charger, so I’m sticking with my price.",
+          "price": null,
+          "intent": "unknown"
+        },
+        {
+          "role": "buyer",
+          "content": "reject",
+          "price": null,
+          "intent": "reject"
+        }
+      ],
+      "final_price": null,
+      "buyer_utility": null,
+      "seller_utility": null,
+      "fairness": null,
+      "turns_taken": 18
+    },
+    "evaluation": {
+      "human_likeness_1": 3,
+      "human_likeness_2": 3,
+      "human_likeness_3": 3,
+      "human_likeness_4": 3,
+      "human_likeness_5": 4
+    }
+  }
+]
