@@ -105,7 +105,7 @@ class NegotiationGreeting(dspy.Signature):
     response: str = dspy.OutputField(desc="natural language response.")
 
 class NegotiationJudge(dspy.Signature):
-    """You are an impartial judge evaluating the progress of a negotiation between a Buyer and a Seller.
+    """(You are an impartial judge evaluating the progress of a negotiation between a Buyer and a Seller.
     Analyze the Buyer's latest message in response to the Seller's latest message to determine the current status.
 
     [STATUS DEFINITIONS]
@@ -118,7 +118,7 @@ class NegotiationJudge(dspy.Signature):
     - Has the buyer explicitly rejected the offer or indicated they are walking away?
     - Has the buyer said they cannot afford the price?- Is the buyer asking further questions or making a counter-offer?
     
-    **Please output only a single word: ACCEPTANCE, REJECTION, or CONTINUE**
+    **Please output only a single word: ACCEPTANCE, REJECTION, or CONTINUE**)
     """
 
     buyer_latest_message: str = dspy.InputField(desc="Buyer's latest message.")
@@ -306,6 +306,7 @@ class AllinOneLLMBuyerAgent():
 
         response_prediction = self.greeting_predictor(**context)
         response_prediction['response'] = self.clean_generator_output(response_prediction['response'])
+        #self.lm.inspect_history(n=1) ##############
 
         return response_prediction
     

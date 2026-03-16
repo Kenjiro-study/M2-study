@@ -224,6 +224,7 @@ class SimpleLLMBuyerAgent():
 
         response_prediction = self.response_predictor(**context)
         response_prediction['response'] = self.clean_generator_output(response_prediction['response'])
+        #self.lm.inspect_history(n=1) ##########
 
         return response_prediction
     
@@ -246,6 +247,7 @@ class SimpleLLMBuyerAgent():
 
         response_prediction = self.greeting_predictor(**context)
         response_prediction['response'] = self.clean_generator_output(response_prediction['response'])
+        #self.lm.inspect_history(n=1) ##############
 
         return response_prediction
     

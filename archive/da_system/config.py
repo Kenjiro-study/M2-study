@@ -80,7 +80,7 @@ MODEL_CONFIGS: Dict[str, ModelConfig] = {
 # あらかじめ定義された実験の configurations
 EXPERIMENT_CONFIGS: Dict[str, ExperimentConfig] = {
     "baseline": ExperimentConfig(
-        num_scenarios=50,
+        num_scenarios=500,
         #num_scenarios=1,
         max_turns=20,
         turn_timeout=30.0,
@@ -88,8 +88,8 @@ EXPERIMENT_CONFIGS: Dict[str, ExperimentConfig] = {
         #models=["llama3.3:70b"],
         models=["openai/gpt-oss-20b"],
         #models=["qwen3:30b"],
-        strategies=["length", "fair", "utility"],
-        #strategies=["fair"],
+        #strategies=["length", "fair", "utility"],
+        strategies=["fair"],
         agents=["damf", "search", "simple", "all"] 
         #agents=["damf"] 
     ),

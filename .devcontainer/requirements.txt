@@ -16,6 +16,7 @@ ipywidgets
 numpy<2.3
 pandas
 matplotlib
+statsmodels
 
 # PyTorch packages
 #torch

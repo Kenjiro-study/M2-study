@@ -51,7 +51,7 @@ class InfoNegotiationManager(dspy.Signature):
     2.  Next, consider your own `agent_role` (e.g., Buyer or Seller) and `agent_strategy`.
     3.  Finally, strictly follow the "Intent Selection Criteria" below to select the single most appropriate intent label.
     
-    [INTENT SELECTION CRITERIA (top priorityy)]
+    [INTENT SELECTION CRITERIA (top priority)]
     - inquire: Select this when you need to ask about details such as the condition of the product.
     - init-price: Select to make the *first* price proposal.
     - supplemental: Select to provide additional information (e.g., product benefits) when the partner's intent was *not* `inquire`."""

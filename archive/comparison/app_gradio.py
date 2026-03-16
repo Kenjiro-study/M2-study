@@ -106,12 +106,12 @@ except Exception as e:
 
 # (4) 8パターンのエージェント組み合わせ (本番用)
 ALL_AGENT_COMBINATIONS = [
-    {"model_key": "openai/gpt-oss-20b", "agent_name": "damf", "role": "seller", "strategy": "fair"},
-    {"model_key": "openai/gpt-oss-20b", "agent_name": "search", "role": "seller", "strategy": "fair"},
-    {"model_key": "openai/gpt-oss-20b", "agent_name": "simple", "role": "seller", "strategy": "free"},
-    {"model_key": "openai/gpt-oss-20b", "agent_name": "all", "role": "seller", "strategy": "free"},
-    {"model_key": "openai/gpt-oss-20b", "agent_name": "damf", "role": "buyer", "strategy": "fair"},
-    {"model_key": "openai/gpt-oss-20b", "agent_name": "search", "role": "buyer", "strategy": "fair"},
+    #{"model_key": "openai/gpt-oss-20b", "agent_name": "damf", "role": "seller", "strategy": "fair"},
+    #{"model_key": "openai/gpt-oss-20b", "agent_name": "search", "role": "seller", "strategy": "fair"},
+    #{"model_key": "openai/gpt-oss-20b", "agent_name": "simple", "role": "seller", "strategy": "free"},
+    #{"model_key": "openai/gpt-oss-20b", "agent_name": "all", "role": "seller", "strategy": "free"},
+    #{"model_key": "openai/gpt-oss-20b", "agent_name": "damf", "role": "buyer", "strategy": "fair"},
+    #{"model_key": "openai/gpt-oss-20b", "agent_name": "search", "role": "buyer", "strategy": "fair"},
     {"model_key": "openai/gpt-oss-20b", "agent_name": "simple", "role": "buyer", "strategy": "free"},
     {"model_key": "openai/gpt-oss-20b", "agent_name": "all", "role": "buyer", "strategy": "free"},
 ]
@@ -340,7 +340,9 @@ def handle_start_experiment(request: gr.Request):
             size=NUM_SESSIONS,
             balanced_categories=True
         )
-        
+        scenario_batch[1] = scenario_batch[0] ########
+        print("scenario_batch: ", scenario_batch) ########
+
         # (3) (エージェント, シナリオ) のタプルリストを作成
         session_tasks = list(zip(shuffled_agents, scenario_batch))
         
@@ -843,8 +845,8 @@ with gr.Blocks(theme=theme) as demo:
             )
 
         gr.Markdown("今回の交渉相手の「人間らしさ」について, 以下の項目を5段階で評価してください。")
-        hl1_slider = gr.Slider(minimum=1, maximum=5, step=1, label="評価項目1：「非機械性」：エージェントに反応に同じ文の反復など, 機械的・事務的なプログラムらしさはなく, 人間らしさがありましたか？(1: 機械的 〜 5: 人間らしい)", value=3)
-        hl2_slider = gr.Slider(minimum=1, maximum=5, step=1, label="評価項目2：「説得の論理性」：価格に対するエージェントの説明や理由は、人間が話す内容として納得感できるものでしたか？(1: 非論理的 〜 5: 論理的)", value=3)
+        hl1_slider = gr.Slider(minimum=1, maximum=5, step=1, label="評価項目1：「非機械性」：エージェントの反応に同じ文の反復など, 機械的・事務的なプログラムらしさはなく, 人間らしさがありましたか？(1: 機械的 〜 5: 人間らしい)", value=3)
+        hl2_slider = gr.Slider(minimum=1, maximum=5, step=1, label="評価項目2：「説得の論理性」：価格に対するエージェントの説明や理由は、人間が話す内容として納得できるものでしたか？(1: 非論理的 〜 5: 論理的)", value=3)
         hl3_slider = gr.Slider(minimum=1, maximum=5, step=1, label="評価項目3：「話の簡潔性」：エージェントの反応は論点が1,2点にまとまって簡潔なものでしたか？(1: 冗長 〜 5: 簡潔))", value=3)
         hl4_slider = gr.Slider(minimum=1, maximum=5, step=1, label="評価項目4：「自然さ」：意味が理解できない応答や, 不当な価格提案はなく, 交渉者としてエージェントの反応は自然なものでしたか？(1: 不自然 〜 5: 自然))", value=3)
         hl5_slider = gr.Slider(minimum=1, maximum=5, step=1, label="評価項目5：「交渉力」：エージェントは直接的な価格交渉のみならず, 商品の状態への質問など対話を深めて交渉を有利に進めようとしていましたか？ (1: 交渉力がない 〜 5: 交渉力がある))", value=3)
